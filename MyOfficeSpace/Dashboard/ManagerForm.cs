@@ -1,6 +1,7 @@
 ﻿using MyOfficeSpace.Clients;
 using MyOfficeSpace.Employees;
 using MyOfficeSpace.Projects;
+using MyOfficeSpace.Tasks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,6 +80,7 @@ namespace MyOfficeSpace
             Login lv = new Login();
             lv.ShowDialog();
         }
+
         List<ProjectList> Projects = new List<ProjectList>();
         private void RefreshProjectList_Click(object sender, EventArgs e)
         {
@@ -115,6 +117,7 @@ namespace MyOfficeSpace
                 conn.Close();
             }
         }
+
         List<ClientList> Clients = new List<ClientList>();
         private void RefreshClientListbtn_Click(object sender, EventArgs e)
         {
@@ -151,6 +154,7 @@ namespace MyOfficeSpace
                 conn.Close();
             }
         }
+
         List<EmployeeList> Employees = new List<EmployeeList>();
         private void RefreshEmployeeList_Click(object sender, EventArgs e)
         {
@@ -186,6 +190,8 @@ namespace MyOfficeSpace
                 conn.Close();
             }
         }
+
+
         List<FileList> Files = new List<FileList>();
         private void RefreshFile_Click(object sender, EventArgs e)
         {
@@ -213,13 +219,65 @@ namespace MyOfficeSpace
             }
         }
 
+
+        List<TaskList> TaskList = new List<TaskList>();
+        private void BtnRefreshTask_Click(object sender, EventArgs e)
+        {
+            string connString = "Data Source=.;Initial Catalog=My_Office_Space;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(connString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select Task_Number, Employee_Name, Task_Details from Employees join Employees where Employees.Employee_SSN = Tasks.Employee_SSN";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                listTask.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ListViewItem item = new ListViewItem(reader["Task_Number"].ToString());
+                    item.SubItems.Add(reader["Employee_Name"].ToString());
+                    item.SubItems.Add(reader["Task_Details"].ToString());
+
+                    listTask.Items.Add(item);
+
+                    TaskList.Add(new TaskList(
+                        reader["Task_Number"].ToString(),
+                        reader["Employee_Name"].ToString(),
+                        reader["Task_Details"].ToString()
+                    ));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error002: " + ex.Message);
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         private void Createfolderbtn_Click(object sender, EventArgs e)
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
             string folderName = "Main Folder";
             string subfolderName = "Shared Folder";
-            string folderPath = Path.Combine(desktopPath, folderName);
-            string subfolderPath = Path.Combine(folderPath, subfolderName);
+            string empfolderName = "Employees";
+            string accfolderName = "Accountants";
+            string hrfolderName = "HR";
+
+            string folderPath = Path.Combine(desktopPath, folderName); // Main folder
+
+            string subfolderPath = Path.Combine(folderPath, subfolderName); //main Folder/sharedfolder
+
+            string empfolderPath = Path.Combine(subfolderPath, empfolderName); //main Folder/sharedfolder/employee
+            string accfolderPath = Path.Combine(subfolderPath, accfolderName);  //main Folder/sharedfolder/accountant
+            string hrfolderPath = Path.Combine(subfolderPath, hrfolderName);  //main Folder/sharedfolder/hr
 
             if (Directory.Exists(folderPath))
             {
@@ -229,6 +287,10 @@ namespace MyOfficeSpace
             {
                 Directory.CreateDirectory(folderPath);
                 Directory.CreateDirectory(subfolderPath);
+                Directory.CreateDirectory(empfolderPath);
+                Directory.CreateDirectory(accfolderPath);
+                Directory.CreateDirectory(hrfolderPath);
+
                 MessageBox.Show("Folder created successfully.", "Main Folder", MessageBoxButtons.OK);
             }
         }
@@ -579,28 +641,110 @@ namespace MyOfficeSpace
         }
 
 
-        private void BtnRefreshTask_Click(object sender, EventArgs e)
+        
+
+        private void BtnEditTask_Click(object sender, EventArgs e)
+        {
+            if (listTask.SelectedItems.Count == 1)
+            {
+                String tsknum = listTask.SelectedItems[0].Text;
+                EditTask et = new EditTask(tsknum);
+                et.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select one Task", "Task Details", MessageBoxButtons.OK);
+                BtnRefreshTask_Click(sender, e);
+            }
+            
+        }
+
+        private void BtnAddTask_Click(object sender, EventArgs e)
+        {
+            AssignTask ass = new AssignTask();
+            ass.ShowDialog();
+
+        }
+
+        private void BtnViewTask_Click(object sender, EventArgs e)
+        {
+            if (listTask.SelectedItems.Count == 1)
+            {
+                String numb = listTask.SelectedItems[0].Text;
+                ViewTask et = new ViewTask(numb);
+                et.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select one Task", "Task Details", MessageBoxButtons.OK);
+                BtnRefreshTask_Click(sender, e);
+            }
+        }
+
+        private void BtnRemoveTask_Click(object sender, EventArgs e)
+        {
+            if (EmployeesList.SelectedItems.Count >= 1)
+            {
+                string connString = "Data Source=.;Initial Catalog=My_Office_Space;Integrated Security=True";
+                SqlConnection conn = new SqlConnection(connString);
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "DELETE from Tasks where Task_numb = '" + EmployeesList.SelectedItems[0].Text + "'";
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record deleted!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    return;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select at least at least one Task", "Remove Task", MessageBoxButtons.OK);
+                RefreshEmployeeList_Click(sender, e);
+            }
+        }
+
+        List<attendance> att = new List<attendance>();
+        private void ListAll_Click(object sender, EventArgs e)
         {
             string connString = "Data Source=.;Initial Catalog=My_Office_Space;Integrated Security=True";
             SqlConnection conn = new SqlConnection(connString);
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "select Employee_Name from Employees";
+            cmd.CommandText = "select Employee_SSN, Day, Sign_in, Sign_out from Attendance";
             try
             {
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                EmployeesList.Items.Clear();
+                listAttendance.Items.Clear();
 
                 while (reader.Read())
                 {
-                    ListViewItem item = new ListViewItem();
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        EmployeesList.Items.Add(reader["Employee_Name"].ToString());
-                        Employees.Add(new EmployeeList(reader["Employee_Name"].ToString()));
-                    }
+                    ListViewItem item = new ListViewItem(reader["Employee_SSN"].ToString());
+                    item.SubItems.Add(reader["Day"].ToString());
+                    item.SubItems.Add(reader["Sign_in"].ToString());
+                    item.SubItems.Add(reader["Sign_out"].ToString());
+
+                    listAttendance.Items.Add(item);
+
+                    att.Add(new attendance(
+                        reader["Employee_SSN"].ToString(),
+                        reader["Day"].ToString(),
+                        reader["Sign_in"].ToString(),
+                        reader["Sign_out"].ToString()
+                    ));
                 }
             }
             catch (Exception ex)
@@ -614,24 +758,46 @@ namespace MyOfficeSpace
             }
         }
 
-        private void BtnEditTask_Click(object sender, EventArgs e)
+        private void AttCheck_Click(object sender, EventArgs e)
         {
+            string connString = "Data Source=.;Initial Catalog=My_Office_Space;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(connString);
 
-        }
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select Employee_SSN, Day, Sign_in, Sign_out from Attendance";
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                listAttendance.Items.Clear();
 
-        private void BtnAddTask_Click(object sender, EventArgs e)
-        {
+                while (reader.Read())
+                {
+                    ListViewItem item = new ListViewItem(reader["Employee_SSN"].ToString());
+                    item.SubItems.Add(reader["Day"].ToString());
+                    item.SubItems.Add(reader["Sign_in"].ToString());
+                    item.SubItems.Add(reader["Sign_out"].ToString());
 
-        }
+                    listAttendance.Items.Add(item);
 
-        private void BtnViewTask_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnRemoveTask_Click(object sender, EventArgs e)
-        {
-
+                    att.Add(new attendance(
+                        reader["Employee_SSN"].ToString(),
+                        reader["Day"].ToString(),
+                        reader["Sign_in"].ToString(),
+                        reader["Sign_out"].ToString()
+                    ));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error002: " + ex.Message);
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void SearchEmp_Click(object sender, EventArgs e)

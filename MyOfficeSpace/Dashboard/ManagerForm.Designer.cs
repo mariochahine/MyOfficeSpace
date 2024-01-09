@@ -87,18 +87,20 @@
             this.BtnRemoveTask = new System.Windows.Forms.Button();
             this.BtnEditTask = new System.Windows.Forms.Button();
             this.BtnAddTask = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listTask = new System.Windows.Forms.ListView();
+            this.Emp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.task = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttendanceTab = new System.Windows.Forms.TabPage();
+            this.AttCheck = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.listAttendance = new System.Windows.Forms.ListView();
+            this.employee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.signedin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AttDate = new System.Windows.Forms.DateTimePicker();
             this.button24 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
+            this.ListAll = new System.Windows.Forms.Button();
             this.ExpenseTab = new System.Windows.Forms.TabPage();
             this.button26 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -154,7 +156,8 @@
             this.Minimizebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Exitbtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TaskNumb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.signout = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bunifuGradientPanel1.SuspendLayout();
             this.ManagerTab.SuspendLayout();
             this.FilesTab.SuspendLayout();
@@ -728,7 +731,7 @@
             this.ScheduleTab.Controls.Add(this.BtnRemoveTask);
             this.ScheduleTab.Controls.Add(this.BtnEditTask);
             this.ScheduleTab.Controls.Add(this.BtnAddTask);
-            this.ScheduleTab.Controls.Add(this.listView1);
+            this.ScheduleTab.Controls.Add(this.listTask);
             this.ScheduleTab.Location = new System.Drawing.Point(4, 34);
             this.ScheduleTab.Name = "ScheduleTab";
             this.ScheduleTab.Padding = new System.Windows.Forms.Padding(3);
@@ -807,39 +810,40 @@
             this.BtnAddTask.UseVisualStyleBackColor = true;
             this.BtnAddTask.Click += new System.EventHandler(this.BtnAddTask_Click);
             // 
-            // listView1
+            // listTask
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.Date});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(570, 25);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(550, 530);
-            this.listView1.TabIndex = 25;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listTask.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.TaskNumb,
+            this.Emp,
+            this.task});
+            this.listTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listTask.HideSelection = false;
+            this.listTask.Location = new System.Drawing.Point(570, 27);
+            this.listTask.Name = "listTask";
+            this.listTask.Size = new System.Drawing.Size(550, 530);
+            this.listTask.TabIndex = 25;
+            this.listTask.UseCompatibleStateImageBehavior = false;
+            this.listTask.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // Emp
             // 
-            this.columnHeader1.Text = "Tasks";
-            this.columnHeader1.Width = 270;
+            this.Emp.Text = "Employee";
+            this.Emp.Width = 136;
             // 
-            // columnHeader2
+            // task
             // 
-            this.columnHeader2.Text = "Employee";
-            this.columnHeader2.Width = 152;
+            this.task.Text = "Tasks";
+            this.task.Width = 333;
             // 
             // AttendanceTab
             // 
+            this.AttendanceTab.Controls.Add(this.AttCheck);
             this.AttendanceTab.Controls.Add(this.button23);
             this.AttendanceTab.Controls.Add(this.textBox4);
-            this.AttendanceTab.Controls.Add(this.listView2);
-            this.AttendanceTab.Controls.Add(this.dateTimePicker1);
+            this.AttendanceTab.Controls.Add(this.listAttendance);
+            this.AttendanceTab.Controls.Add(this.AttDate);
             this.AttendanceTab.Controls.Add(this.button24);
-            this.AttendanceTab.Controls.Add(this.button22);
+            this.AttendanceTab.Controls.Add(this.ListAll);
             this.AttendanceTab.Location = new System.Drawing.Point(4, 34);
             this.AttendanceTab.Name = "AttendanceTab";
             this.AttendanceTab.Padding = new System.Windows.Forms.Padding(3);
@@ -847,6 +851,17 @@
             this.AttendanceTab.TabIndex = 7;
             this.AttendanceTab.Text = "Attendance";
             this.AttendanceTab.UseVisualStyleBackColor = true;
+            // 
+            // AttCheck
+            // 
+            this.AttCheck.BackColor = System.Drawing.Color.Silver;
+            this.AttCheck.Location = new System.Drawing.Point(115, 244);
+            this.AttCheck.Name = "AttCheck";
+            this.AttCheck.Size = new System.Drawing.Size(300, 60);
+            this.AttCheck.TabIndex = 38;
+            this.AttCheck.Text = "Check Attendances That Day";
+            this.AttCheck.UseVisualStyleBackColor = false;
+            this.AttCheck.Click += new System.EventHandler(this.AttCheck_Click);
             // 
             // button23
             // 
@@ -867,56 +882,64 @@
             this.textBox4.Size = new System.Drawing.Size(375, 33);
             this.textBox4.TabIndex = 37;
             // 
-            // listView2
+            // listAttendance
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader6});
-            this.listView2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(570, 25);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(550, 530);
-            this.listView2.TabIndex = 35;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listAttendance.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.employee,
+            this.Date,
+            this.signedin,
+            this.signout});
+            this.listAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listAttendance.HideSelection = false;
+            this.listAttendance.Location = new System.Drawing.Point(570, 32);
+            this.listAttendance.Name = "listAttendance";
+            this.listAttendance.Size = new System.Drawing.Size(550, 530);
+            this.listAttendance.TabIndex = 35;
+            this.listAttendance.UseCompatibleStateImageBehavior = false;
+            this.listAttendance.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader3
+            // employee
             // 
-            this.columnHeader3.Text = "Employee Name";
-            this.columnHeader3.Width = 353;
+            this.employee.Text = "Employee Name";
+            this.employee.Width = 177;
             // 
-            // columnHeader6
+            // Date
             // 
-            this.columnHeader6.Text = "Time and day";
-            this.columnHeader6.Width = 176;
+            this.Date.Text = "Day";
+            this.Date.Width = 120;
             // 
-            // dateTimePicker1
+            // signedin
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(115, 102);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 26);
-            this.dateTimePicker1.TabIndex = 34;
+            this.signedin.Text = "Sign in";
+            this.signedin.Width = 125;
+            // 
+            // AttDate
+            // 
+            this.AttDate.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttDate.Location = new System.Drawing.Point(115, 64);
+            this.AttDate.Name = "AttDate";
+            this.AttDate.Size = new System.Drawing.Size(300, 26);
+            this.AttDate.TabIndex = 34;
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(115, 328);
+            this.button24.Location = new System.Drawing.Point(115, 412);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(300, 60);
             this.button24.TabIndex = 33;
             this.button24.Text = "Choose Employee";
             this.button24.UseVisualStyleBackColor = true;
             // 
-            // button22
+            // ListAll
             // 
-            this.button22.BackColor = System.Drawing.Color.Silver;
-            this.button22.Location = new System.Drawing.Point(115, 428);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(300, 60);
-            this.button22.TabIndex = 32;
-            this.button22.Text = "Refresh Attendance List";
-            this.button22.UseVisualStyleBackColor = false;
+            this.ListAll.BackColor = System.Drawing.Color.Silver;
+            this.ListAll.Location = new System.Drawing.Point(115, 495);
+            this.ListAll.Name = "ListAll";
+            this.ListAll.Size = new System.Drawing.Size(300, 60);
+            this.ListAll.TabIndex = 32;
+            this.ListAll.Text = "List all Attendances";
+            this.ListAll.UseVisualStyleBackColor = false;
+            this.ListAll.Click += new System.EventHandler(this.ListAll_Click);
             // 
             // ExpenseTab
             // 
@@ -1791,10 +1814,15 @@
             this.Exitbtn.UseDefaultRadiusAndThickness = true;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
-            // Date
+            // TaskNumb
             // 
-            this.Date.Text = "Date";
-            this.Date.Width = 109;
+            this.TaskNumb.Text = "Number";
+            this.TaskNumb.Width = 70;
+            // 
+            // signout
+            // 
+            this.signout.Text = "Sign Out";
+            this.signout.Width = 121;
             // 
             // ManagerForm
             // 
@@ -1895,9 +1923,9 @@
         private System.Windows.Forms.Button BtnRemoveTask;
         private System.Windows.Forms.Button BtnEditTask;
         private System.Windows.Forms.Button BtnAddTask;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ListView listTask;
+        private System.Windows.Forms.ColumnHeader task;
+        private System.Windows.Forms.ColumnHeader Emp;
         private System.Windows.Forms.TabPage EmployeesTab;
         private System.Windows.Forms.Button RefreshEmployeeList;
         private System.Windows.Forms.Button EmployeeDetailbtn;
@@ -1905,9 +1933,9 @@
         private System.Windows.Forms.Button EditEmployeebtn;
         private System.Windows.Forms.Button AddEmployeebtn;
         private System.Windows.Forms.TabPage AttendanceTab;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker AttDate;
         private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button ListAll;
         private System.Windows.Forms.TabPage ExpenseTab;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button28;
@@ -1961,14 +1989,17 @@
         private System.Windows.Forms.ColumnHeader Employee_Name;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ListView listAttendance;
+        private System.Windows.Forms.ColumnHeader employee;
+        private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColumnHeader Date;
+        private System.Windows.Forms.Button AttCheck;
+        private System.Windows.Forms.ColumnHeader signedin;
+        private System.Windows.Forms.ColumnHeader TaskNumb;
+        private System.Windows.Forms.ColumnHeader signout;
     }
 }

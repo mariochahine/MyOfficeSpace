@@ -161,12 +161,14 @@
     <Compile Include="Tasks\AssignTask.Designer.cs">
       <DependentUpon>AssignTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="attendance.cs" />
     <Compile Include="Tasks\EditTask.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tasks\EditTask.Designer.cs">
       <DependentUpon>EditTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tasks\TaskList.cs" />
     <Compile Include="Tasks\ViewTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +227,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tasks\AssignTask.resx">
+      <DependentUpon>AssignTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tasks\EditTask.resx">
+      <DependentUpon>EditTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tasks\ViewTask.resx">
+      <DependentUpon>ViewTask.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="My_Office_SpaceDataSet.xsc">
       <DependentUpon>My_Office_SpaceDataSet.xsd</DependentUpon>
     </None>

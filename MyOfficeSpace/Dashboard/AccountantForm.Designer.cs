@@ -33,6 +33,7 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ManagerTab = new System.Windows.Forms.TabControl();
             this.FilesTab = new System.Windows.Forms.TabPage();
@@ -51,7 +52,6 @@
             this.FileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttendanceTab = new System.Windows.Forms.TabPage();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button24 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -110,7 +110,6 @@
             this.Minimizebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Exitbtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.bunifuGradientPanel1.SuspendLayout();
             this.ManagerTab.SuspendLayout();
             this.FilesTab.SuspendLayout();
@@ -149,6 +148,16 @@
             this.bunifuGradientPanel1.Quality = 10;
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(1250, 800);
             this.bunifuGradientPanel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Georgia", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(453, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(402, 38);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Welcome, Accountant.";
             // 
             // label9
             // 
@@ -328,7 +337,6 @@
             // AttendanceTab
             // 
             this.AttendanceTab.Controls.Add(this.dateTimePicker1);
-            this.AttendanceTab.Controls.Add(this.button24);
             this.AttendanceTab.Controls.Add(this.button22);
             this.AttendanceTab.Controls.Add(this.button23);
             this.AttendanceTab.Controls.Add(this.textBox4);
@@ -345,24 +353,15 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 53);
+            this.dateTimePicker1.Location = new System.Drawing.Point(99, 96);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(300, 26);
             this.dateTimePicker1.TabIndex = 34;
             // 
-            // button24
-            // 
-            this.button24.Location = new System.Drawing.Point(99, 375);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(300, 60);
-            this.button24.TabIndex = 33;
-            this.button24.Text = "Choose Employee";
-            this.button24.UseVisualStyleBackColor = true;
-            // 
             // button22
             // 
             this.button22.BackColor = System.Drawing.Color.Silver;
-            this.button22.Location = new System.Drawing.Point(99, 490);
+            this.button22.Location = new System.Drawing.Point(99, 430);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(300, 60);
             this.button22.TabIndex = 32;
@@ -390,7 +389,7 @@
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(99, 269);
+            this.button27.Location = new System.Drawing.Point(99, 307);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(300, 60);
             this.button27.TabIndex = 26;
@@ -1257,16 +1256,6 @@
             this.Exitbtn.UseDefaultRadiusAndThickness = true;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Georgia", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(453, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 39);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Welcome, Accountant.";
-            // 
             // AccountantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1325,7 +1314,6 @@
         private System.Windows.Forms.ColumnHeader FileName;
         private System.Windows.Forms.TabPage AttendanceTab;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.TextBox textBox4;

@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
-            this.LogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.ManagerTab = new System.Windows.Forms.TabControl();
             this.FilesTab = new System.Windows.Forms.TabPage();
             this.OpenFinishedFolder = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.FileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttendanceTab = new System.Windows.Forms.TabPage();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button24 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -59,6 +59,10 @@
             this.EmployeeList = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ScheduleTab = new System.Windows.Forms.TabPage();
+            this.button17 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button16 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -103,14 +107,10 @@
             this.ay4 = new System.Windows.Forms.RadioButton();
             this.ay1 = new System.Windows.Forms.RadioButton();
             this.TwoA0 = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
             this.Minimizebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.LogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Exitbtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.button17 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
+            this.button20 = new System.Windows.Forms.Button();
             this.bunifuGradientPanel1.SuspendLayout();
             this.ManagerTab.SuspendLayout();
             this.FilesTab.SuspendLayout();
@@ -150,95 +150,27 @@
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(1250, 800);
             this.bunifuGradientPanel1.TabIndex = 0;
             // 
-            // LogOut
+            // label1
             // 
-            this.LogOut.AllowAnimations = true;
-            this.LogOut.AllowMouseEffects = true;
-            this.LogOut.AllowToggling = false;
-            this.LogOut.AnimationSpeed = 200;
-            this.LogOut.AutoGenerateColors = false;
-            this.LogOut.AutoRoundBorders = false;
-            this.LogOut.AutoSizeLeftIcon = true;
-            this.LogOut.AutoSizeRightIcon = true;
-            this.LogOut.BackColor = System.Drawing.Color.Transparent;
-            this.LogOut.BackColor1 = System.Drawing.Color.Transparent;
-            this.LogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogOut.BackgroundImage")));
-            this.LogOut.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
-            this.LogOut.ButtonText = "LogOut";
-            this.LogOut.ButtonTextMarginLeft = 0;
-            this.LogOut.ColorContrastOnClick = 45;
-            this.LogOut.ColorContrastOnHover = 45;
-            this.LogOut.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.LogOut.CustomizableEdges = borderEdges2;
-            this.LogOut.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.LogOut.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.LogOut.DisabledFillColor = System.Drawing.Color.Transparent;
-            this.LogOut.DisabledForecolor = System.Drawing.Color.White;
-            this.LogOut.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.LogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogOut.ForeColor = System.Drawing.Color.IndianRed;
-            this.LogOut.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogOut.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.LogOut.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.LogOut.IconMarginLeft = 11;
-            this.LogOut.IconPadding = 10;
-            this.LogOut.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LogOut.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.LogOut.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.LogOut.IconSize = 25;
-            this.LogOut.IdleBorderColor = System.Drawing.Color.Transparent;
-            this.LogOut.IdleBorderRadius = 35;
-            this.LogOut.IdleBorderThickness = 1;
-            this.LogOut.IdleFillColor = System.Drawing.Color.Transparent;
-            this.LogOut.IdleIconLeftImage = null;
-            this.LogOut.IdleIconRightImage = null;
-            this.LogOut.IndicateFocus = false;
-            this.LogOut.Location = new System.Drawing.Point(840, 38);
-            this.LogOut.Name = "LogOut";
-            this.LogOut.OnDisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnDisabledState.BorderRadius = 35;
-            this.LogOut.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.LogOut.OnDisabledState.BorderThickness = 1;
-            this.LogOut.OnDisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnDisabledState.ForeColor = System.Drawing.Color.White;
-            this.LogOut.OnDisabledState.IconLeftImage = null;
-            this.LogOut.OnDisabledState.IconRightImage = null;
-            this.LogOut.onHoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.LogOut.onHoverState.BorderRadius = 35;
-            this.LogOut.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.LogOut.onHoverState.BorderThickness = 1;
-            this.LogOut.onHoverState.FillColor = System.Drawing.Color.Transparent;
-            this.LogOut.onHoverState.ForeColor = System.Drawing.Color.IndianRed;
-            this.LogOut.onHoverState.IconLeftImage = null;
-            this.LogOut.onHoverState.IconRightImage = null;
-            this.LogOut.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnIdleState.BorderRadius = 35;
-            this.LogOut.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
-            this.LogOut.OnIdleState.BorderThickness = 1;
-            this.LogOut.OnIdleState.FillColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnIdleState.ForeColor = System.Drawing.Color.IndianRed;
-            this.LogOut.OnIdleState.IconLeftImage = null;
-            this.LogOut.OnIdleState.IconRightImage = null;
-            this.LogOut.OnPressedState.BorderColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnPressedState.BorderRadius = 35;
-            this.LogOut.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.LogOut.OnPressedState.BorderThickness = 1;
-            this.LogOut.OnPressedState.FillColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnPressedState.ForeColor = System.Drawing.Color.Gray;
-            this.LogOut.OnPressedState.IconLeftImage = null;
-            this.LogOut.OnPressedState.IconRightImage = null;
-            this.LogOut.Size = new System.Drawing.Size(77, 25);
-            this.LogOut.TabIndex = 16;
-            this.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LogOut.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.LogOut.TextMarginLeft = 0;
-            this.LogOut.TextPadding = new System.Windows.Forms.Padding(0);
-            this.LogOut.UseDefaultRadiusAndThickness = true;
-            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Georgia", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(437, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(375, 38);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Welcome, Employee.";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGray;
+            this.label9.Location = new System.Drawing.Point(998, 771);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 16);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "MyOfficeSpace©2023";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ManagerTab
             // 
@@ -273,7 +205,7 @@
             this.FilesTab.Location = new System.Drawing.Point(4, 34);
             this.FilesTab.Name = "FilesTab";
             this.FilesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FilesTab.Size = new System.Drawing.Size(1123, 627);
+            this.FilesTab.Size = new System.Drawing.Size(1152, 627);
             this.FilesTab.TabIndex = 0;
             this.FilesTab.Text = "Files List";
             // 
@@ -384,6 +316,7 @@
             this.OpenFilebtn.TabIndex = 11;
             this.OpenFilebtn.Text = "Open File";
             this.OpenFilebtn.UseVisualStyleBackColor = true;
+            this.OpenFilebtn.Click += new System.EventHandler(this.OpenFilebtn_Click);
             // 
             // FileList
             // 
@@ -405,8 +338,8 @@
             // 
             // AttendanceTab
             // 
+            this.AttendanceTab.Controls.Add(this.button20);
             this.AttendanceTab.Controls.Add(this.dateTimePicker1);
-            this.AttendanceTab.Controls.Add(this.button24);
             this.AttendanceTab.Controls.Add(this.button22);
             this.AttendanceTab.Controls.Add(this.button23);
             this.AttendanceTab.Controls.Add(this.textBox4);
@@ -423,19 +356,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 53);
+            this.dateTimePicker1.Location = new System.Drawing.Point(99, 71);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(300, 26);
             this.dateTimePicker1.TabIndex = 34;
-            // 
-            // button24
-            // 
-            this.button24.Location = new System.Drawing.Point(99, 375);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(300, 60);
-            this.button24.TabIndex = 33;
-            this.button24.Text = "Choose Employee";
-            this.button24.UseVisualStyleBackColor = true;
             // 
             // button22
             // 
@@ -444,7 +368,7 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(300, 60);
             this.button22.TabIndex = 32;
-            this.button22.Text = "Refresh Attendance List";
+            this.button22.Text = "List all Attendances";
             this.button22.UseVisualStyleBackColor = false;
             // 
             // button23
@@ -468,7 +392,7 @@
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(99, 269);
+            this.button27.Location = new System.Drawing.Point(99, 383);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(300, 60);
             this.button27.TabIndex = 26;
@@ -509,10 +433,47 @@
             this.ScheduleTab.Text = "Schedule & Task Manager";
             this.ScheduleTab.UseVisualStyleBackColor = true;
             // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(958, 558);
+            this.button17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(150, 45);
+            this.button17.TabIndex = 34;
+            this.button17.Text = "Search";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(582, 564);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(350, 33);
+            this.textBox1.TabIndex = 35;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(582, 18);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(526, 532);
+            this.listView1.TabIndex = 33;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Tasks";
+            this.columnHeader1.Width = 354;
+            // 
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.Silver;
-            this.button16.Location = new System.Drawing.Point(100, 490);
+            this.button16.Location = new System.Drawing.Point(101, 370);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(300, 60);
             this.button16.TabIndex = 32;
@@ -521,7 +482,7 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(100, 290);
+            this.button18.Location = new System.Drawing.Point(101, 126);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(300, 60);
             this.button18.TabIndex = 29;
@@ -530,7 +491,7 @@
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(100, 390);
+            this.button19.Location = new System.Drawing.Point(101, 255);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(300, 60);
             this.button19.TabIndex = 28;
@@ -542,7 +503,7 @@
             this.ToolsTab.Controls.Add(this.tabControl1);
             this.ToolsTab.Location = new System.Drawing.Point(4, 34);
             this.ToolsTab.Name = "ToolsTab";
-            this.ToolsTab.Size = new System.Drawing.Size(1123, 627);
+            this.ToolsTab.Size = new System.Drawing.Size(1152, 627);
             this.ToolsTab.TabIndex = 9;
             this.ToolsTab.Text = "Tools";
             this.ToolsTab.UseVisualStyleBackColor = true;
@@ -1028,18 +989,6 @@
             this.TwoA0.Text = "2A0";
             this.TwoA0.UseVisualStyleBackColor = true;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkGray;
-            this.label9.Location = new System.Drawing.Point(998, 771);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 16);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "MyOfficeSpace©2023";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // Minimizebtn
             // 
             this.Minimizebtn.AllowAnimations = true;
@@ -1129,6 +1078,96 @@
             this.Minimizebtn.TextPadding = new System.Windows.Forms.Padding(0);
             this.Minimizebtn.UseDefaultRadiusAndThickness = true;
             this.Minimizebtn.Click += new System.EventHandler(this.Minimizebtn_Click);
+            // 
+            // LogOut
+            // 
+            this.LogOut.AllowAnimations = true;
+            this.LogOut.AllowMouseEffects = true;
+            this.LogOut.AllowToggling = false;
+            this.LogOut.AnimationSpeed = 200;
+            this.LogOut.AutoGenerateColors = false;
+            this.LogOut.AutoRoundBorders = false;
+            this.LogOut.AutoSizeLeftIcon = true;
+            this.LogOut.AutoSizeRightIcon = true;
+            this.LogOut.BackColor = System.Drawing.Color.Transparent;
+            this.LogOut.BackColor1 = System.Drawing.Color.Transparent;
+            this.LogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogOut.BackgroundImage")));
+            this.LogOut.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
+            this.LogOut.ButtonText = "LogOut";
+            this.LogOut.ButtonTextMarginLeft = 0;
+            this.LogOut.ColorContrastOnClick = 45;
+            this.LogOut.ColorContrastOnHover = 45;
+            this.LogOut.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.LogOut.CustomizableEdges = borderEdges2;
+            this.LogOut.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.LogOut.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.DisabledFillColor = System.Drawing.Color.Transparent;
+            this.LogOut.DisabledForecolor = System.Drawing.Color.White;
+            this.LogOut.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.LogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOut.ForeColor = System.Drawing.Color.IndianRed;
+            this.LogOut.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogOut.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.LogOut.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.LogOut.IconMarginLeft = 11;
+            this.LogOut.IconPadding = 10;
+            this.LogOut.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LogOut.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.LogOut.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.LogOut.IconSize = 25;
+            this.LogOut.IdleBorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.IdleBorderRadius = 35;
+            this.LogOut.IdleBorderThickness = 1;
+            this.LogOut.IdleFillColor = System.Drawing.Color.Transparent;
+            this.LogOut.IdleIconLeftImage = null;
+            this.LogOut.IdleIconRightImage = null;
+            this.LogOut.IndicateFocus = false;
+            this.LogOut.Location = new System.Drawing.Point(840, 38);
+            this.LogOut.Name = "LogOut";
+            this.LogOut.OnDisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnDisabledState.BorderRadius = 35;
+            this.LogOut.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.LogOut.OnDisabledState.BorderThickness = 1;
+            this.LogOut.OnDisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnDisabledState.ForeColor = System.Drawing.Color.White;
+            this.LogOut.OnDisabledState.IconLeftImage = null;
+            this.LogOut.OnDisabledState.IconRightImage = null;
+            this.LogOut.onHoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.onHoverState.BorderRadius = 35;
+            this.LogOut.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.LogOut.onHoverState.BorderThickness = 1;
+            this.LogOut.onHoverState.FillColor = System.Drawing.Color.Transparent;
+            this.LogOut.onHoverState.ForeColor = System.Drawing.Color.IndianRed;
+            this.LogOut.onHoverState.IconLeftImage = null;
+            this.LogOut.onHoverState.IconRightImage = null;
+            this.LogOut.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnIdleState.BorderRadius = 35;
+            this.LogOut.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
+            this.LogOut.OnIdleState.BorderThickness = 1;
+            this.LogOut.OnIdleState.FillColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnIdleState.ForeColor = System.Drawing.Color.IndianRed;
+            this.LogOut.OnIdleState.IconLeftImage = null;
+            this.LogOut.OnIdleState.IconRightImage = null;
+            this.LogOut.OnPressedState.BorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnPressedState.BorderRadius = 35;
+            this.LogOut.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.LogOut.OnPressedState.BorderThickness = 1;
+            this.LogOut.OnPressedState.FillColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnPressedState.ForeColor = System.Drawing.Color.Gray;
+            this.LogOut.OnPressedState.IconLeftImage = null;
+            this.LogOut.OnPressedState.IconRightImage = null;
+            this.LogOut.Size = new System.Drawing.Size(77, 25);
+            this.LogOut.TabIndex = 16;
+            this.LogOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LogOut.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LogOut.TextMarginLeft = 0;
+            this.LogOut.TextPadding = new System.Windows.Forms.Padding(0);
+            this.LogOut.UseDefaultRadiusAndThickness = true;
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
             // 
             // Exitbtn
             // 
@@ -1220,52 +1259,15 @@
             this.Exitbtn.UseDefaultRadiusAndThickness = true;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
-            // button17
+            // button20
             // 
-            this.button17.Location = new System.Drawing.Point(958, 558);
-            this.button17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(150, 45);
-            this.button17.TabIndex = 34;
-            this.button17.Text = "Search";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(582, 564);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 33);
-            this.textBox1.TabIndex = 35;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(582, 18);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(526, 532);
-            this.listView1.TabIndex = 33;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Tasks";
-            this.columnHeader1.Width = 354;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Georgia", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(437, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(384, 39);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Welcome, Employee.";
+            this.button20.BackColor = System.Drawing.Color.Silver;
+            this.button20.Location = new System.Drawing.Point(99, 235);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(300, 60);
+            this.button20.TabIndex = 39;
+            this.button20.Text = "check attendance";
+            this.button20.UseVisualStyleBackColor = false;
             // 
             // EmployeeForm
             // 
@@ -1325,7 +1327,6 @@
         private System.Windows.Forms.ColumnHeader FileName;
         private System.Windows.Forms.TabPage AttendanceTab;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.TextBox textBox4;
@@ -1385,5 +1386,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button20;
     }
 }

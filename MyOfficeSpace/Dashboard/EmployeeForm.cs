@@ -33,5 +33,10 @@ namespace MyOfficeSpace
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void OpenFilebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
