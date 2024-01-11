@@ -76,8 +76,6 @@ namespace MyOfficeSpace {
         
         private global::System.Data.DataRelation relationFK_Employees_Managers1;
         
-        private global::System.Data.DataRelation relationFK_Employees_Position;
-        
         private global::System.Data.DataRelation relationFK_Expense_Approval_Managers1;
         
         private global::System.Data.DataRelation relationFK_Expenses_Accountants;
@@ -105,6 +103,8 @@ namespace MyOfficeSpace {
         private global::System.Data.DataRelation relationFK_Tasks_Employees;
         
         private global::System.Data.DataRelation relationFK_Tasks_Managers;
+        
+        private global::System.Data.DataRelation relationFK_HumanResources_Employees;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -635,7 +635,6 @@ namespace MyOfficeSpace {
             this.relationFK_Employees_HumanResources = this.Relations["FK_Employees_HumanResources"];
             this.relationFK_Employees_HumanResources1 = this.Relations["FK_Employees_HumanResources1"];
             this.relationFK_Employees_Managers1 = this.Relations["FK_Employees_Managers1"];
-            this.relationFK_Employees_Position = this.Relations["FK_Employees_Position"];
             this.relationFK_Expense_Approval_Managers1 = this.Relations["FK_Expense_Approval_Managers1"];
             this.relationFK_Expenses_Accountants = this.Relations["FK_Expenses_Accountants"];
             this.relationFK_Expenses_Expense_Approval = this.Relations["FK_Expenses_Expense_Approval"];
@@ -650,6 +649,7 @@ namespace MyOfficeSpace {
             this.relationFK_Projects_Clients1 = this.Relations["FK_Projects_Clients1"];
             this.relationFK_Tasks_Employees = this.Relations["FK_Tasks_Employees"];
             this.relationFK_Tasks_Managers = this.Relations["FK_Tasks_Managers"];
+            this.relationFK_HumanResources_Employees = this.Relations["FK_HumanResources_Employees"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -730,10 +730,6 @@ namespace MyOfficeSpace {
                         this.tableManagers.Manager_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableEmployees.Supervisor_NumbColumn}, false);
             this.Relations.Add(this.relationFK_Employees_Managers1);
-            this.relationFK_Employees_Position = new global::System.Data.DataRelation("FK_Employees_Position", new global::System.Data.DataColumn[] {
-                        this.tablePosition.Position_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEmployees.Position_IDColumn}, false);
-            this.Relations.Add(this.relationFK_Employees_Position);
             this.relationFK_Expense_Approval_Managers1 = new global::System.Data.DataRelation("FK_Expense_Approval_Managers1", new global::System.Data.DataColumn[] {
                         this.tableManagers.Manager_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableExpense_Approval.Manager_IDColumn}, false);
@@ -790,6 +786,10 @@ namespace MyOfficeSpace {
                         this.tableManagers.Manager_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTasks.Manager_NumbColumn}, false);
             this.Relations.Add(this.relationFK_Tasks_Managers);
+            this.relationFK_HumanResources_Employees = new global::System.Data.DataRelation("FK_HumanResources_Employees", new global::System.Data.DataColumn[] {
+                        this.tableEmployees.Employee_SSNColumn}, new global::System.Data.DataColumn[] {
+                        this.tableHumanResources.Employee_SSNColumn}, false);
+            this.Relations.Add(this.relationFK_HumanResources_Employees);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2880,8 +2880,6 @@ namespace MyOfficeSpace {
             
             private global::System.Data.DataColumn columnEmployee_Name;
             
-            private global::System.Data.DataColumn columnLast_Name;
-            
             private global::System.Data.DataColumn columnPhone;
             
             private global::System.Data.DataColumn columnEmail;
@@ -2889,8 +2887,6 @@ namespace MyOfficeSpace {
             private global::System.Data.DataColumn columnJoin_Date;
             
             private global::System.Data.DataColumn columnTermination_Date;
-            
-            private global::System.Data.DataColumn columnPosition_ID;
             
             private global::System.Data.DataColumn columnSupervisor_Numb;
             
@@ -2953,14 +2949,6 @@ namespace MyOfficeSpace {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Last_NameColumn {
-                get {
-                    return this.columnLast_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn PhoneColumn {
                 get {
                     return this.columnPhone;
@@ -2988,14 +2976,6 @@ namespace MyOfficeSpace {
             public global::System.Data.DataColumn Termination_DateColumn {
                 get {
                     return this.columnTermination_Date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Position_IDColumn {
-                get {
-                    return this.columnPosition_ID;
                 }
             }
             
@@ -3076,17 +3056,15 @@ namespace MyOfficeSpace {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EmployeesRow AddEmployeesRow(HumanResourcesRow parentHumanResourcesRowByFK_Employees_HumanResources, string Employee_Name, string Last_Name, long Phone, string Email, System.DateTime Join_Date, System.DateTime Termination_Date, PositionRow parentPositionRowByFK_Employees_Position, ManagersRow parentManagersRowByFK_Employees_Managers1, decimal Salary, decimal Rate, string Bank_Iban, HumanResourcesRow parentHumanResourcesRowByFK_Employees_HumanResources1) {
+            public EmployeesRow AddEmployeesRow(HumanResourcesRow parentHumanResourcesRowByFK_Employees_HumanResources, string Employee_Name, long Phone, string Email, System.DateTime Join_Date, System.DateTime Termination_Date, ManagersRow parentManagersRowByFK_Employees_Managers1, decimal Salary, decimal Rate, string Bank_Iban, HumanResourcesRow parentHumanResourcesRowByFK_Employees_HumanResources1) {
                 EmployeesRow rowEmployeesRow = ((EmployeesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Employee_Name,
-                        Last_Name,
                         Phone,
                         Email,
                         Join_Date,
                         Termination_Date,
-                        null,
                         null,
                         Salary,
                         Rate,
@@ -3095,14 +3073,11 @@ namespace MyOfficeSpace {
                 if ((parentHumanResourcesRowByFK_Employees_HumanResources != null)) {
                     columnValuesArray[0] = parentHumanResourcesRowByFK_Employees_HumanResources[0];
                 }
-                if ((parentPositionRowByFK_Employees_Position != null)) {
-                    columnValuesArray[7] = parentPositionRowByFK_Employees_Position[0];
-                }
                 if ((parentManagersRowByFK_Employees_Managers1 != null)) {
-                    columnValuesArray[8] = parentManagersRowByFK_Employees_Managers1[0];
+                    columnValuesArray[6] = parentManagersRowByFK_Employees_Managers1[0];
                 }
                 if ((parentHumanResourcesRowByFK_Employees_HumanResources1 != null)) {
-                    columnValuesArray[12] = parentHumanResourcesRowByFK_Employees_HumanResources1[0];
+                    columnValuesArray[10] = parentHumanResourcesRowByFK_Employees_HumanResources1[0];
                 }
                 rowEmployeesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeesRow);
@@ -3135,12 +3110,10 @@ namespace MyOfficeSpace {
             internal void InitVars() {
                 this.columnEmployee_SSN = base.Columns["Employee_SSN"];
                 this.columnEmployee_Name = base.Columns["Employee_Name"];
-                this.columnLast_Name = base.Columns["Last_Name"];
                 this.columnPhone = base.Columns["Phone"];
                 this.columnEmail = base.Columns["Email"];
                 this.columnJoin_Date = base.Columns["Join_Date"];
                 this.columnTermination_Date = base.Columns["Termination_Date"];
-                this.columnPosition_ID = base.Columns["Position_ID"];
                 this.columnSupervisor_Numb = base.Columns["Supervisor_Numb"];
                 this.columnSalary = base.Columns["Salary"];
                 this.columnRate = base.Columns["Rate"];
@@ -3155,8 +3128,6 @@ namespace MyOfficeSpace {
                 base.Columns.Add(this.columnEmployee_SSN);
                 this.columnEmployee_Name = new global::System.Data.DataColumn("Employee_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmployee_Name);
-                this.columnLast_Name = new global::System.Data.DataColumn("Last_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLast_Name);
                 this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhone);
                 this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3165,8 +3136,6 @@ namespace MyOfficeSpace {
                 base.Columns.Add(this.columnJoin_Date);
                 this.columnTermination_Date = new global::System.Data.DataColumn("Termination_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTermination_Date);
-                this.columnPosition_ID = new global::System.Data.DataColumn("Position_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPosition_ID);
                 this.columnSupervisor_Numb = new global::System.Data.DataColumn("Supervisor_Numb", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupervisor_Numb);
                 this.columnSalary = new global::System.Data.DataColumn("Salary", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -3183,15 +3152,11 @@ namespace MyOfficeSpace {
                 this.columnEmployee_SSN.Unique = true;
                 this.columnEmployee_Name.AllowDBNull = false;
                 this.columnEmployee_Name.MaxLength = 20;
-                this.columnLast_Name.AllowDBNull = false;
-                this.columnLast_Name.MaxLength = 20;
                 this.columnPhone.AllowDBNull = false;
                 this.columnEmail.AllowDBNull = false;
                 this.columnEmail.MaxLength = 50;
                 this.columnJoin_Date.AllowDBNull = false;
-                this.columnPosition_ID.AllowDBNull = false;
                 this.columnBank_Iban.MaxLength = 34;
-                this.columnHR_Numb.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4066,13 +4031,16 @@ namespace MyOfficeSpace {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HumanResourcesRow AddHumanResourcesRow(int HR_Numb, int Employee_SSN, string Rank, System.DateTime Assignment_Date) {
+            public HumanResourcesRow AddHumanResourcesRow(int HR_Numb, EmployeesRow parentEmployeesRowByFK_HumanResources_Employees, string Rank, System.DateTime Assignment_Date) {
                 HumanResourcesRow rowHumanResourcesRow = ((HumanResourcesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         HR_Numb,
-                        Employee_SSN,
+                        null,
                         Rank,
                         Assignment_Date};
+                if ((parentEmployeesRowByFK_HumanResources_Employees != null)) {
+                    columnValuesArray[1] = parentEmployeesRowByFK_HumanResources_Employees[0];
+                }
                 rowHumanResourcesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHumanResourcesRow);
                 return rowHumanResourcesRow;
@@ -7034,17 +7002,6 @@ namespace MyOfficeSpace {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Last_Name {
-                get {
-                    return ((string)(this[this.tableEmployees.Last_NameColumn]));
-                }
-                set {
-                    this[this.tableEmployees.Last_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public long Phone {
                 get {
                     return ((long)(this[this.tableEmployees.PhoneColumn]));
@@ -7089,17 +7046,6 @@ namespace MyOfficeSpace {
                 }
                 set {
                     this[this.tableEmployees.Termination_DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Position_ID {
-                get {
-                    return ((int)(this[this.tableEmployees.Position_IDColumn]));
-                }
-                set {
-                    this[this.tableEmployees.Position_IDColumn] = value;
                 }
             }
             
@@ -7171,7 +7117,12 @@ namespace MyOfficeSpace {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int HR_Numb {
                 get {
-                    return ((int)(this[this.tableEmployees.HR_NumbColumn]));
+                    try {
+                        return ((int)(this[this.tableEmployees.HR_NumbColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HR_Numb\' in table \'Employees\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableEmployees.HR_NumbColumn] = value;
@@ -7208,17 +7159,6 @@ namespace MyOfficeSpace {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Employees_Managers1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PositionRow PositionRow {
-                get {
-                    return ((PositionRow)(this.GetParentRow(this.Table.ParentRelations["FK_Employees_Position"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Employees_Position"]);
                 }
             }
             
@@ -7280,6 +7220,18 @@ namespace MyOfficeSpace {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBank_IbanNull() {
                 this[this.tableEmployees.Bank_IbanColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHR_NumbNull() {
+                return this.IsNull(this.tableEmployees.HR_NumbColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHR_NumbNull() {
+                this[this.tableEmployees.HR_NumbColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7356,6 +7308,17 @@ namespace MyOfficeSpace {
                 }
                 else {
                     return ((TasksRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Tasks_Employees"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public HumanResourcesRow[] GetHumanResourcesRows() {
+                if ((this.Table.ChildRelations["FK_HumanResources_Employees"] == null)) {
+                    return new HumanResourcesRow[0];
+                }
+                else {
+                    return ((HumanResourcesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_HumanResources_Employees"])));
                 }
             }
         }
@@ -7593,6 +7556,17 @@ namespace MyOfficeSpace {
                 }
                 set {
                     this[this.tableHumanResources.Assignment_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EmployeesRow EmployeesRow {
+                get {
+                    return ((EmployeesRow)(this.GetParentRow(this.Table.ParentRelations["FK_HumanResources_Employees"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_HumanResources_Employees"]);
                 }
             }
             
@@ -8018,17 +7992,6 @@ namespace MyOfficeSpace {
                 }
                 set {
                     this[this.tablePosition.PositionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EmployeesRow[] GetEmployeesRows() {
-                if ((this.Table.ChildRelations["FK_Employees_Position"] == null)) {
-                    return new EmployeesRow[0];
-                }
-                else {
-                    return ((EmployeesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Employees_Position"])));
                 }
             }
         }
@@ -11162,12 +11125,10 @@ SELECT ID, Emp_SSN, Password, Security_Answer FROM Credentials WHERE (ID = @ID)"
             tableMapping.DataSetTable = "Employees";
             tableMapping.ColumnMappings.Add("Employee_SSN", "Employee_SSN");
             tableMapping.ColumnMappings.Add("Employee_Name", "Employee_Name");
-            tableMapping.ColumnMappings.Add("Last_Name", "Last_Name");
             tableMapping.ColumnMappings.Add("Phone", "Phone");
             tableMapping.ColumnMappings.Add("Email", "Email");
             tableMapping.ColumnMappings.Add("Join_Date", "Join_Date");
             tableMapping.ColumnMappings.Add("Termination_Date", "Termination_Date");
-            tableMapping.ColumnMappings.Add("Position_ID", "Position_ID");
             tableMapping.ColumnMappings.Add("Supervisor_Numb", "Supervisor_Numb");
             tableMapping.ColumnMappings.Add("Salary", "Salary");
             tableMapping.ColumnMappings.Add("Rate", "Rate");
@@ -11176,17 +11137,15 @@ SELECT ID, Emp_SSN, Password, Security_Answer FROM Credentials WHERE (ID = @ID)"
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Employees] WHERE (([Employee_SSN] = @Original_Employee_SSN) AND ([Employee_Name] = @Original_Employee_Name) AND ([Last_Name] = @Original_Last_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ([Join_Date] = @Original_Join_Date) AND ((@IsNull_Termination_Date = 1 AND [Termination_Date] IS NULL) OR ([Termination_Date] = @Original_Termination_Date)) AND ([Position_ID] = @Original_Position_ID) AND ((@IsNull_Supervisor_Numb = 1 AND [Supervisor_Numb] IS NULL) OR ([Supervisor_Numb] = @Original_Supervisor_Numb)) AND ((@IsNull_Salary = 1 AND [Salary] IS NULL) OR ([Salary] = @Original_Salary)) AND ((@IsNull_Rate = 1 AND [Rate] IS NULL) OR ([Rate] = @Original_Rate)) AND ((@IsNull_Bank_Iban = 1 AND [Bank_Iban] IS NULL) OR ([Bank_Iban] = @Original_Bank_Iban)) AND ([HR_Numb] = @Original_HR_Numb))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Employees] WHERE (([Employee_SSN] = @Original_Employee_SSN) AND ([Employee_Name] = @Original_Employee_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ([Join_Date] = @Original_Join_Date) AND ((@IsNull_Termination_Date = 1 AND [Termination_Date] IS NULL) OR ([Termination_Date] = @Original_Termination_Date)) AND ((@IsNull_Supervisor_Numb = 1 AND [Supervisor_Numb] IS NULL) OR ([Supervisor_Numb] = @Original_Supervisor_Numb)) AND ((@IsNull_Salary = 1 AND [Salary] IS NULL) OR ([Salary] = @Original_Salary)) AND ((@IsNull_Rate = 1 AND [Rate] IS NULL) OR ([Rate] = @Original_Rate)) AND ((@IsNull_Bank_Iban = 1 AND [Bank_Iban] IS NULL) OR ([Bank_Iban] = @Original_Bank_Iban)) AND ((@IsNull_HR_Numb = 1 AND [HR_Numb] IS NULL) OR ([HR_Numb] = @Original_HR_Numb)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Employee_SSN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_SSN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Employee_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Join_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Termination_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Termination_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Termination_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Termination_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Position_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Supervisor_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor_Numb", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Supervisor_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor_Numb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Salary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Salary", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11195,20 +11154,19 @@ SELECT ID, Emp_SSN, Password, Security_Answer FROM Credentials WHERE (ID = @ID)"
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Bank_Iban", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Bank_Iban", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Bank_Iban", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Bank_Iban", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HR_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HR_Numb", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HR_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HR_Numb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Employees] ([Employee_SSN], [Employee_Name], [Last_Name], [Phone], [Email], [Join_Date], [Termination_Date], [Position_ID], [Supervisor_Numb], [Salary], [Rate], [Bank_Iban], [HR_Numb]) VALUES (@Employee_SSN, @Employee_Name, @Last_Name, @Phone, @Email, @Join_Date, @Termination_Date, @Position_ID, @Supervisor_Numb, @Salary, @Rate, @Bank_Iban, @HR_Numb);
-SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Termination_Date, Position_ID, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb FROM Employees WHERE (Employee_SSN = @Employee_SSN)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Employees] ([Employee_SSN], [Employee_Name], [Phone], [Email], [Join_Date], [Termination_Date], [Supervisor_Numb], [Salary], [Rate], [Bank_Iban], [HR_Numb]) VALUES (@Employee_SSN, @Employee_Name, @Phone, @Email, @Join_Date, @Termination_Date, @Supervisor_Numb, @Salary, @Rate, @Bank_Iban, @HR_Numb);
+SELECT Employee_SSN, Employee_Name, Phone, Email, Join_Date, Termination_Date, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb FROM Employees WHERE (Employee_SSN = @Employee_SSN)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_SSN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_SSN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Join_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Termination_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Termination_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Supervisor_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor_Numb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Salary", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Salary", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11216,17 +11174,15 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HR_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HR_Numb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Employees] SET [Employee_SSN] = @Employee_SSN, [Employee_Name] = @Employee_Name, [Last_Name] = @Last_Name, [Phone] = @Phone, [Email] = @Email, [Join_Date] = @Join_Date, [Termination_Date] = @Termination_Date, [Position_ID] = @Position_ID, [Supervisor_Numb] = @Supervisor_Numb, [Salary] = @Salary, [Rate] = @Rate, [Bank_Iban] = @Bank_Iban, [HR_Numb] = @HR_Numb WHERE (([Employee_SSN] = @Original_Employee_SSN) AND ([Employee_Name] = @Original_Employee_Name) AND ([Last_Name] = @Original_Last_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ([Join_Date] = @Original_Join_Date) AND ((@IsNull_Termination_Date = 1 AND [Termination_Date] IS NULL) OR ([Termination_Date] = @Original_Termination_Date)) AND ([Position_ID] = @Original_Position_ID) AND ((@IsNull_Supervisor_Numb = 1 AND [Supervisor_Numb] IS NULL) OR ([Supervisor_Numb] = @Original_Supervisor_Numb)) AND ((@IsNull_Salary = 1 AND [Salary] IS NULL) OR ([Salary] = @Original_Salary)) AND ((@IsNull_Rate = 1 AND [Rate] IS NULL) OR ([Rate] = @Original_Rate)) AND ((@IsNull_Bank_Iban = 1 AND [Bank_Iban] IS NULL) OR ([Bank_Iban] = @Original_Bank_Iban)) AND ([HR_Numb] = @Original_HR_Numb));
-SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Termination_Date, Position_ID, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb FROM Employees WHERE (Employee_SSN = @Employee_SSN)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Employees] SET [Employee_SSN] = @Employee_SSN, [Employee_Name] = @Employee_Name, [Phone] = @Phone, [Email] = @Email, [Join_Date] = @Join_Date, [Termination_Date] = @Termination_Date, [Supervisor_Numb] = @Supervisor_Numb, [Salary] = @Salary, [Rate] = @Rate, [Bank_Iban] = @Bank_Iban, [HR_Numb] = @HR_Numb WHERE (([Employee_SSN] = @Original_Employee_SSN) AND ([Employee_Name] = @Original_Employee_Name) AND ([Phone] = @Original_Phone) AND ([Email] = @Original_Email) AND ([Join_Date] = @Original_Join_Date) AND ((@IsNull_Termination_Date = 1 AND [Termination_Date] IS NULL) OR ([Termination_Date] = @Original_Termination_Date)) AND ((@IsNull_Supervisor_Numb = 1 AND [Supervisor_Numb] IS NULL) OR ([Supervisor_Numb] = @Original_Supervisor_Numb)) AND ((@IsNull_Salary = 1 AND [Salary] IS NULL) OR ([Salary] = @Original_Salary)) AND ((@IsNull_Rate = 1 AND [Rate] IS NULL) OR ([Rate] = @Original_Rate)) AND ((@IsNull_Bank_Iban = 1 AND [Bank_Iban] IS NULL) OR ([Bank_Iban] = @Original_Bank_Iban)) AND ((@IsNull_HR_Numb = 1 AND [HR_Numb] IS NULL) OR ([HR_Numb] = @Original_HR_Numb)));
+SELECT Employee_SSN, Employee_Name, Phone, Email, Join_Date, Termination_Date, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb FROM Employees WHERE (Employee_SSN = @Employee_SSN)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_SSN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_SSN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Join_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Termination_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Termination_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Supervisor_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor_Numb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Salary", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Salary", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11234,13 +11190,11 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HR_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HR_Numb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Employee_SSN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_SSN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Employee_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Employee_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Join_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Join_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Termination_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Termination_Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Termination_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Termination_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Position_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Supervisor_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor_Numb", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Supervisor_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor_Numb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Salary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Salary", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -11249,6 +11203,7 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rate", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Bank_Iban", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Bank_Iban", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Bank_Iban", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Bank_Iban", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HR_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HR_Numb", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HR_Numb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HR_Numb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -11265,9 +11220,8 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Termination_" +
-                "Date, Position_ID, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb FROM dbo.Em" +
-                "ployees";
+            this._commandCollection[0].CommandText = "SELECT Employee_SSN, Employee_Name, Phone, Email, Join_Date, Termination_Date, Su" +
+                "pervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb\r\nFROM     Employees";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11328,7 +11282,7 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Employee_SSN, string Original_Employee_Name, string Original_Last_Name, long Original_Phone, string Original_Email, System.DateTime Original_Join_Date, global::System.Nullable<global::System.DateTime> Original_Termination_Date, int Original_Position_ID, global::System.Nullable<int> Original_Supervisor_Numb, global::System.Nullable<decimal> Original_Salary, global::System.Nullable<decimal> Original_Rate, string Original_Bank_Iban, int Original_HR_Numb) {
+        public virtual int Delete(int Original_Employee_SSN, string Original_Employee_Name, long Original_Phone, string Original_Email, System.DateTime Original_Join_Date, global::System.Nullable<global::System.DateTime> Original_Termination_Date, global::System.Nullable<int> Original_Supervisor_Numb, global::System.Nullable<decimal> Original_Salary, global::System.Nullable<decimal> Original_Rate, string Original_Bank_Iban, global::System.Nullable<int> Original_HR_Numb) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Employee_SSN));
             if ((Original_Employee_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Employee_Name");
@@ -11336,62 +11290,62 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Employee_Name));
             }
-            if ((Original_Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Last_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Last_Name));
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((long)(Original_Phone));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_Phone));
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Email));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Email));
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_Join_Date));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Join_Date));
             if ((Original_Termination_Date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_Termination_Date.Value));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Termination_Date.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Position_ID));
             if ((Original_Supervisor_Numb.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Supervisor_Numb.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Salary.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Supervisor_Numb.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Salary.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_Salary.HasValue == true)) {
+            if ((Original_Rate.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Salary.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Rate.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_Rate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_Rate.Value));
-            }
-            else {
+            if ((Original_Bank_Iban == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Bank_Iban == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Bank_Iban));
+            }
+            if ((Original_HR_Numb.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_HR_Numb.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Bank_Iban));
-            }
-            this.Adapter.DeleteCommand.Parameters[17].Value = ((int)(Original_HR_Numb));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11412,7 +11366,7 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Employee_SSN, string Employee_Name, string Last_Name, long Phone, string Email, System.DateTime Join_Date, global::System.Nullable<global::System.DateTime> Termination_Date, int Position_ID, global::System.Nullable<int> Supervisor_Numb, global::System.Nullable<decimal> Salary, global::System.Nullable<decimal> Rate, string Bank_Iban, int HR_Numb) {
+        public virtual int Insert(int Employee_SSN, string Employee_Name, long Phone, string Email, System.DateTime Join_Date, global::System.Nullable<global::System.DateTime> Termination_Date, global::System.Nullable<int> Supervisor_Numb, global::System.Nullable<decimal> Salary, global::System.Nullable<decimal> Rate, string Bank_Iban, global::System.Nullable<int> HR_Numb) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Employee_SSN));
             if ((Employee_Name == null)) {
                 throw new global::System.ArgumentNullException("Employee_Name");
@@ -11420,52 +11374,50 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Employee_Name));
             }
-            if ((Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Last_Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Last_Name));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(Phone));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(Phone));
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Email));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Email));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Join_Date));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Join_Date));
             if ((Termination_Date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(Termination_Date.Value));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Termination_Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Supervisor_Numb.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Supervisor_Numb.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Position_ID));
-            if ((Supervisor_Numb.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Supervisor_Numb.Value));
+            if ((Salary.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Salary.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Rate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(Rate.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Salary.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(Salary.Value));
-            }
-            else {
+            if ((Bank_Iban == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Rate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Rate.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Bank_Iban));
+            }
+            if ((HR_Numb.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(HR_Numb.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Bank_Iban == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Bank_Iban));
-            }
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(HR_Numb));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11489,30 +11441,26 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
         public virtual int Update(
                     int Employee_SSN, 
                     string Employee_Name, 
-                    string Last_Name, 
                     long Phone, 
                     string Email, 
                     System.DateTime Join_Date, 
                     global::System.Nullable<global::System.DateTime> Termination_Date, 
-                    int Position_ID, 
                     global::System.Nullable<int> Supervisor_Numb, 
                     global::System.Nullable<decimal> Salary, 
                     global::System.Nullable<decimal> Rate, 
                     string Bank_Iban, 
-                    int HR_Numb, 
+                    global::System.Nullable<int> HR_Numb, 
                     int Original_Employee_SSN, 
                     string Original_Employee_Name, 
-                    string Original_Last_Name, 
                     long Original_Phone, 
                     string Original_Email, 
                     System.DateTime Original_Join_Date, 
                     global::System.Nullable<global::System.DateTime> Original_Termination_Date, 
-                    int Original_Position_ID, 
                     global::System.Nullable<int> Original_Supervisor_Numb, 
                     global::System.Nullable<decimal> Original_Salary, 
                     global::System.Nullable<decimal> Original_Rate, 
                     string Original_Bank_Iban, 
-                    int Original_HR_Numb) {
+                    global::System.Nullable<int> Original_HR_Numb) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Employee_SSN));
             if ((Employee_Name == null)) {
                 throw new global::System.ArgumentNullException("Employee_Name");
@@ -11520,115 +11468,113 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Employee_Name));
             }
-            if ((Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Last_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Last_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Phone));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(Phone));
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Email));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Email));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Join_Date));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Join_Date));
             if ((Termination_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Termination_Date.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Termination_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Supervisor_Numb.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Supervisor_Numb.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Position_ID));
-            if ((Supervisor_Numb.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Supervisor_Numb.Value));
+            if ((Salary.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Salary.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Rate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Rate.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Salary.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Salary.Value));
-            }
-            else {
+            if ((Bank_Iban == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Rate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Rate.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Bank_Iban));
+            }
+            if ((HR_Numb.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(HR_Numb.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Bank_Iban == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Bank_Iban));
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(HR_Numb));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Employee_SSN));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Employee_SSN));
             if ((Original_Employee_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Employee_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Employee_Name));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Employee_Name));
             }
-            if ((Original_Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Last_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Last_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((long)(Original_Phone));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_Phone));
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Email));
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_Join_Date));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_Join_Date));
             if ((Original_Termination_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_Termination_Date.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_Termination_Date.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Position_ID));
             if ((Original_Supervisor_Numb.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Supervisor_Numb.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Salary.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_Salary.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Rate.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Supervisor_Numb.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Original_Rate.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Original_Salary.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_Salary.Value));
-            }
-            else {
+            if ((Original_Bank_Iban == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_Rate.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Bank_Iban));
+            }
+            if ((Original_HR_Numb.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(Original_Rate.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_HR_Numb.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_Bank_Iban == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Bank_Iban));
-            }
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_HR_Numb));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11651,31 +11597,27 @@ SELECT Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Terminat
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     string Employee_Name, 
-                    string Last_Name, 
                     long Phone, 
                     string Email, 
                     System.DateTime Join_Date, 
                     global::System.Nullable<global::System.DateTime> Termination_Date, 
-                    int Position_ID, 
                     global::System.Nullable<int> Supervisor_Numb, 
                     global::System.Nullable<decimal> Salary, 
                     global::System.Nullable<decimal> Rate, 
                     string Bank_Iban, 
-                    int HR_Numb, 
+                    global::System.Nullable<int> HR_Numb, 
                     int Original_Employee_SSN, 
                     string Original_Employee_Name, 
-                    string Original_Last_Name, 
                     long Original_Phone, 
                     string Original_Email, 
                     System.DateTime Original_Join_Date, 
                     global::System.Nullable<global::System.DateTime> Original_Termination_Date, 
-                    int Original_Position_ID, 
                     global::System.Nullable<int> Original_Supervisor_Numb, 
                     global::System.Nullable<decimal> Original_Salary, 
                     global::System.Nullable<decimal> Original_Rate, 
                     string Original_Bank_Iban, 
-                    int Original_HR_Numb) {
-            return this.Update(Original_Employee_SSN, Employee_Name, Last_Name, Phone, Email, Join_Date, Termination_Date, Position_ID, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb, Original_Employee_SSN, Original_Employee_Name, Original_Last_Name, Original_Phone, Original_Email, Original_Join_Date, Original_Termination_Date, Original_Position_ID, Original_Supervisor_Numb, Original_Salary, Original_Rate, Original_Bank_Iban, Original_HR_Numb);
+                    global::System.Nullable<int> Original_HR_Numb) {
+            return this.Update(Original_Employee_SSN, Employee_Name, Phone, Email, Join_Date, Termination_Date, Supervisor_Numb, Salary, Rate, Bank_Iban, HR_Numb, Original_Employee_SSN, Original_Employee_Name, Original_Phone, Original_Email, Original_Join_Date, Original_Termination_Date, Original_Supervisor_Numb, Original_Salary, Original_Rate, Original_Bank_Iban, Original_HR_Numb);
         }
     }
     
@@ -15602,15 +15544,6 @@ SELECT Task_Numb, Employee_SSN, Assign_Date, Manager_Numb, Task_Details, Done FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(My_Office_SpaceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._positionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._positionTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._humanResourcesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.HumanResources.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -15701,6 +15634,15 @@ SELECT Task_Numb, Employee_SSN, Assign_Date, Manager_Numb, Task_Details, Done FR
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._positionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._positionTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._expensesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Expenses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -15765,14 +15707,6 @@ SELECT Task_Numb, Employee_SSN, Assign_Date, Manager_Numb, Task_Details, Done FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(My_Office_SpaceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._positionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._positionTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._humanResourcesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.HumanResources.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -15850,6 +15784,14 @@ SELECT Task_Numb, Employee_SSN, Assign_Date, Manager_Numb, Task_Details, Done FR
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._project_AssignmentTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._positionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._positionTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15959,6 +15901,14 @@ SELECT Task_Numb, Employee_SSN, Assign_Date, Manager_Numb, Task_Details, Done FR
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._positionTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._positionTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._project_AssignmentTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Project_Assignment.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16036,14 +15986,6 @@ SELECT Task_Numb, Employee_SSN, Assign_Date, Manager_Numb, Task_Details, Done FR
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._humanResourcesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._positionTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Position.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._positionTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

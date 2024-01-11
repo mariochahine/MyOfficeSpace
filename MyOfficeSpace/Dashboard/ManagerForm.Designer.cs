@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerForm));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -36,6 +37,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ManagerTab = new System.Windows.Forms.TabControl();
             this.FilesTab = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnAcc = new System.Windows.Forms.Button();
+            this.btnHR = new System.Windows.Forms.Button();
+            this.btnemp = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.OpenMainFolder = new System.Windows.Forms.Button();
             this.renameguide = new System.Windows.Forms.Label();
             this.RefreshFile = new System.Windows.Forms.Button();
@@ -43,7 +49,6 @@
             this.FileSearch = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Createfolderbtn = new System.Windows.Forms.Button();
-            this.ShareFilebtn = new System.Windows.Forms.Button();
             this.RenameFilebtn = new System.Windows.Forms.Button();
             this.DeleteFilebtn = new System.Windows.Forms.Button();
             this.OpenFilebtn = new System.Windows.Forms.Button();
@@ -88,29 +93,52 @@
             this.BtnEditTask = new System.Windows.Forms.Button();
             this.BtnAddTask = new System.Windows.Forms.Button();
             this.listTask = new System.Windows.Forms.ListView();
+            this.TaskNumb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Emp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.task = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttendanceTab = new System.Windows.Forms.TabPage();
-            this.AttCheck = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.listAttendance = new System.Windows.Forms.ListView();
-            this.employee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.signedin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label6 = new System.Windows.Forms.Label();
+            this.reset = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bunifuDropdown1 = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.my_Office_SpaceDataSet = new MyOfficeSpace.My_Office_SpaceDataSet();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.employeeSSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.signinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.signoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.AttDate = new System.Windows.Forms.DateTimePicker();
-            this.button24 = new System.Windows.Forms.Button();
-            this.ListAll = new System.Windows.Forms.Button();
             this.ExpenseTab = new System.Windows.Forms.TabPage();
-            this.button26 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button25 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
+            this.resetex = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Approve = new System.Windows.Forms.Button();
+            this.bunifuDropdown2 = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.accountantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myOfficeSpaceDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.expenseNumbDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountantNumbDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approvalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ViewTrans = new System.Windows.Forms.Button();
+            this.Payrolls = new System.Windows.Forms.TabPage();
+            this.resetpay = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ApprovePay = new System.Windows.Forms.Button();
+            this.bunifuDropdown3 = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.payrollBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Viewpay = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.Payroll_Numb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToolsTab = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.OpenTabb = new System.Windows.Forms.TabPage();
@@ -156,8 +184,11 @@
             this.Minimizebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Exitbtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.TaskNumb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.signout = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.attendanceTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.AttendanceTableAdapter();
+            this.employeesTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.EmployeesTableAdapter();
+            this.expensesTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.ExpensesTableAdapter();
+            this.accountantsTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.AccountantsTableAdapter();
+            this.payrollTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.PayrollTableAdapter();
             this.bunifuGradientPanel1.SuspendLayout();
             this.ManagerTab.SuspendLayout();
             this.FilesTab.SuspendLayout();
@@ -166,7 +197,18 @@
             this.EmployeesTab.SuspendLayout();
             this.ScheduleTab.SuspendLayout();
             this.AttendanceTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_Office_SpaceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.ExpenseTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myOfficeSpaceDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).BeginInit();
+            this.Payrolls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payrollBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.ToolsTab.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.OpenTabb.SuspendLayout();
@@ -221,6 +263,7 @@
             this.ManagerTab.Controls.Add(this.ScheduleTab);
             this.ManagerTab.Controls.Add(this.AttendanceTab);
             this.ManagerTab.Controls.Add(this.ExpenseTab);
+            this.ManagerTab.Controls.Add(this.Payrolls);
             this.ManagerTab.Controls.Add(this.ToolsTab);
             this.ManagerTab.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManagerTab.ItemSize = new System.Drawing.Size(200, 30);
@@ -229,10 +272,16 @@
             this.ManagerTab.SelectedIndex = 0;
             this.ManagerTab.Size = new System.Drawing.Size(1162, 664);
             this.ManagerTab.TabIndex = 38;
+            this.ManagerTab.SelectedIndexChanged += new System.EventHandler(this.S);
             // 
             // FilesTab
             // 
             this.FilesTab.BackColor = System.Drawing.SystemColors.Menu;
+            this.FilesTab.Controls.Add(this.label7);
+            this.FilesTab.Controls.Add(this.btnAcc);
+            this.FilesTab.Controls.Add(this.btnHR);
+            this.FilesTab.Controls.Add(this.btnemp);
+            this.FilesTab.Controls.Add(this.button2);
             this.FilesTab.Controls.Add(this.OpenMainFolder);
             this.FilesTab.Controls.Add(this.renameguide);
             this.FilesTab.Controls.Add(this.RefreshFile);
@@ -240,7 +289,6 @@
             this.FilesTab.Controls.Add(this.FileSearch);
             this.FilesTab.Controls.Add(this.label10);
             this.FilesTab.Controls.Add(this.Createfolderbtn);
-            this.FilesTab.Controls.Add(this.ShareFilebtn);
             this.FilesTab.Controls.Add(this.RenameFilebtn);
             this.FilesTab.Controls.Add(this.DeleteFilebtn);
             this.FilesTab.Controls.Add(this.OpenFilebtn);
@@ -250,7 +298,62 @@
             this.FilesTab.Padding = new System.Windows.Forms.Padding(3);
             this.FilesTab.Size = new System.Drawing.Size(1154, 626);
             this.FilesTab.TabIndex = 0;
-            this.FilesTab.Text = "Files List";
+            this.FilesTab.Text = "Files Manager";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(158, 375);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(214, 18);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Choose who to share the file to\r\n";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnAcc
+            // 
+            this.btnAcc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcc.Location = new System.Drawing.Point(310, 402);
+            this.btnAcc.Name = "btnAcc";
+            this.btnAcc.Size = new System.Drawing.Size(105, 46);
+            this.btnAcc.TabIndex = 26;
+            this.btnAcc.Text = "Accounting";
+            this.btnAcc.UseVisualStyleBackColor = true;
+            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
+            // 
+            // btnHR
+            // 
+            this.btnHR.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHR.Location = new System.Drawing.Point(227, 402);
+            this.btnHR.Name = "btnHR";
+            this.btnHR.Size = new System.Drawing.Size(75, 46);
+            this.btnHR.TabIndex = 25;
+            this.btnHR.Text = "HR";
+            this.btnHR.UseVisualStyleBackColor = true;
+            this.btnHR.Click += new System.EventHandler(this.btnHR_Click);
+            // 
+            // btnemp
+            // 
+            this.btnemp.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnemp.Location = new System.Drawing.Point(115, 402);
+            this.btnemp.Name = "btnemp";
+            this.btnemp.Size = new System.Drawing.Size(105, 46);
+            this.btnemp.TabIndex = 24;
+            this.btnemp.Text = "Employees";
+            this.btnemp.UseVisualStyleBackColor = true;
+            this.btnemp.Click += new System.EventHandler(this.btnemp_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(115, 295);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(300, 60);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Check Files Shared By Employee";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // OpenMainFolder
             // 
@@ -265,7 +368,7 @@
             // renameguide
             // 
             this.renameguide.AutoSize = true;
-            this.renameguide.Location = new System.Drawing.Point(425, 279);
+            this.renameguide.Location = new System.Drawing.Point(421, 220);
             this.renameguide.Name = "renameguide";
             this.renameguide.Size = new System.Drawing.Size(97, 54);
             this.renameguide.TabIndex = 21;
@@ -325,21 +428,10 @@
             this.Createfolderbtn.UseVisualStyleBackColor = true;
             this.Createfolderbtn.Click += new System.EventHandler(this.Createfolderbtn_Click);
             // 
-            // ShareFilebtn
-            // 
-            this.ShareFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShareFilebtn.Location = new System.Drawing.Point(115, 375);
-            this.ShareFilebtn.Name = "ShareFilebtn";
-            this.ShareFilebtn.Size = new System.Drawing.Size(300, 60);
-            this.ShareFilebtn.TabIndex = 14;
-            this.ShareFilebtn.Text = "Share File to Employee";
-            this.ShareFilebtn.UseVisualStyleBackColor = true;
-            this.ShareFilebtn.Click += new System.EventHandler(this.ShareFilebtn_Click);
-            // 
             // RenameFilebtn
             // 
             this.RenameFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RenameFilebtn.Location = new System.Drawing.Point(115, 275);
+            this.RenameFilebtn.Location = new System.Drawing.Point(115, 217);
             this.RenameFilebtn.Name = "RenameFilebtn";
             this.RenameFilebtn.Size = new System.Drawing.Size(300, 60);
             this.RenameFilebtn.TabIndex = 13;
@@ -350,7 +442,7 @@
             // DeleteFilebtn
             // 
             this.DeleteFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteFilebtn.Location = new System.Drawing.Point(115, 175);
+            this.DeleteFilebtn.Location = new System.Drawing.Point(115, 137);
             this.DeleteFilebtn.Name = "DeleteFilebtn";
             this.DeleteFilebtn.Size = new System.Drawing.Size(300, 60);
             this.DeleteFilebtn.TabIndex = 12;
@@ -361,7 +453,7 @@
             // OpenFilebtn
             // 
             this.OpenFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenFilebtn.Location = new System.Drawing.Point(115, 75);
+            this.OpenFilebtn.Location = new System.Drawing.Point(115, 60);
             this.OpenFilebtn.Name = "OpenFilebtn";
             this.OpenFilebtn.Size = new System.Drawing.Size(300, 60);
             this.OpenFilebtn.TabIndex = 11;
@@ -402,7 +494,7 @@
             this.ProjectTab.Padding = new System.Windows.Forms.Padding(3);
             this.ProjectTab.Size = new System.Drawing.Size(1154, 626);
             this.ProjectTab.TabIndex = 6;
-            this.ProjectTab.Text = "Project List";
+            this.ProjectTab.Text = "Projects";
             this.ProjectTab.UseVisualStyleBackColor = true;
             // 
             // RefreshProjectList
@@ -516,7 +608,7 @@
             this.ClientsTab.Padding = new System.Windows.Forms.Padding(3);
             this.ClientsTab.Size = new System.Drawing.Size(1154, 626);
             this.ClientsTab.TabIndex = 1;
-            this.ClientsTab.Text = "Clients List";
+            this.ClientsTab.Text = "Clients";
             this.ClientsTab.UseVisualStyleBackColor = true;
             // 
             // RefreshClientListbtn
@@ -630,7 +722,7 @@
             this.EmployeesTab.Padding = new System.Windows.Forms.Padding(3);
             this.EmployeesTab.Size = new System.Drawing.Size(1154, 626);
             this.EmployeesTab.TabIndex = 2;
-            this.EmployeesTab.Text = "Employees List";
+            this.EmployeesTab.Text = "Employees";
             this.EmployeesTab.UseVisualStyleBackColor = true;
             // 
             // button32
@@ -642,7 +734,6 @@
             this.button32.TabIndex = 26;
             this.button32.Text = "Search";
             this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.SearchEmp_Click);
             // 
             // EmployeeSearch
             // 
@@ -737,7 +828,7 @@
             this.ScheduleTab.Padding = new System.Windows.Forms.Padding(3);
             this.ScheduleTab.Size = new System.Drawing.Size(1154, 626);
             this.ScheduleTab.TabIndex = 9;
-            this.ScheduleTab.Text = "Schedule & Task Manager";
+            this.ScheduleTab.Text = "Schedule & Tasks";
             this.ScheduleTab.UseVisualStyleBackColor = true;
             // 
             // BtnRefreshTask
@@ -825,6 +916,11 @@
             this.listTask.UseCompatibleStateImageBehavior = false;
             this.listTask.View = System.Windows.Forms.View.Details;
             // 
+            // TaskNumb
+            // 
+            this.TaskNumb.Text = "Number";
+            this.TaskNumb.Width = 70;
+            // 
             // Emp
             // 
             this.Emp.Text = "Employee";
@@ -837,13 +933,13 @@
             // 
             // AttendanceTab
             // 
-            this.AttendanceTab.Controls.Add(this.AttCheck);
-            this.AttendanceTab.Controls.Add(this.button23);
-            this.AttendanceTab.Controls.Add(this.textBox4);
-            this.AttendanceTab.Controls.Add(this.listAttendance);
+            this.AttendanceTab.Controls.Add(this.label6);
+            this.AttendanceTab.Controls.Add(this.reset);
+            this.AttendanceTab.Controls.Add(this.label3);
+            this.AttendanceTab.Controls.Add(this.label2);
+            this.AttendanceTab.Controls.Add(this.bunifuDropdown1);
+            this.AttendanceTab.Controls.Add(this.dataGridView1);
             this.AttendanceTab.Controls.Add(this.AttDate);
-            this.AttendanceTab.Controls.Add(this.button24);
-            this.AttendanceTab.Controls.Add(this.ListAll);
             this.AttendanceTab.Location = new System.Drawing.Point(4, 34);
             this.AttendanceTab.Name = "AttendanceTab";
             this.AttendanceTab.Padding = new System.Windows.Forms.Padding(3);
@@ -852,194 +948,533 @@
             this.AttendanceTab.Text = "Attendance";
             this.AttendanceTab.UseVisualStyleBackColor = true;
             // 
-            // AttCheck
+            // label6
             // 
-            this.AttCheck.BackColor = System.Drawing.Color.Silver;
-            this.AttCheck.Location = new System.Drawing.Point(115, 244);
-            this.AttCheck.Name = "AttCheck";
-            this.AttCheck.Size = new System.Drawing.Size(300, 60);
-            this.AttCheck.TabIndex = 38;
-            this.AttCheck.Text = "Check Attendances That Day";
-            this.AttCheck.UseVisualStyleBackColor = false;
-            this.AttCheck.Click += new System.EventHandler(this.AttCheck_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(222, 199);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 18);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Or";
             // 
-            // button23
+            // reset
             // 
-            this.button23.Location = new System.Drawing.Point(970, 565);
-            this.button23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(150, 45);
-            this.button23.TabIndex = 36;
-            this.button23.Text = "Search";
-            this.button23.UseVisualStyleBackColor = true;
+            this.reset.Location = new System.Drawing.Point(152, 511);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(174, 45);
+            this.reset.TabIndex = 43;
+            this.reset.Text = "Reset Filters";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
-            // textBox4
+            // label3
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(570, 570);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(375, 33);
-            this.textBox4.TabIndex = 37;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(148, 262);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(178, 21);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Pick a Specific Employee";
             // 
-            // listAttendance
+            // label2
             // 
-            this.listAttendance.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.employee,
-            this.Date,
-            this.signedin,
-            this.signout});
-            this.listAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listAttendance.HideSelection = false;
-            this.listAttendance.Location = new System.Drawing.Point(570, 32);
-            this.listAttendance.Name = "listAttendance";
-            this.listAttendance.Size = new System.Drawing.Size(550, 530);
-            this.listAttendance.TabIndex = 35;
-            this.listAttendance.UseCompatibleStateImageBehavior = false;
-            this.listAttendance.View = System.Windows.Forms.View.Details;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(170, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 21);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Pick a Specific Day";
             // 
-            // employee
+            // bunifuDropdown1
             // 
-            this.employee.Text = "Employee Name";
-            this.employee.Width = 177;
+            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDropdown1.BackgroundColor = System.Drawing.Color.White;
+            this.bunifuDropdown1.BorderColor = System.Drawing.Color.Silver;
+            this.bunifuDropdown1.BorderRadius = 1;
+            this.bunifuDropdown1.Color = System.Drawing.Color.Silver;
+            this.bunifuDropdown1.DataSource = this.employeesBindingSource;
+            this.bunifuDropdown1.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.bunifuDropdown1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bunifuDropdown1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bunifuDropdown1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.bunifuDropdown1.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
+            this.bunifuDropdown1.DisplayMember = "Employee_Name";
+            this.bunifuDropdown1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.bunifuDropdown1.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.bunifuDropdown1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bunifuDropdown1.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.bunifuDropdown1.FillDropDown = true;
+            this.bunifuDropdown1.FillIndicator = false;
+            this.bunifuDropdown1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bunifuDropdown1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuDropdown1.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDropdown1.FormattingEnabled = true;
+            this.bunifuDropdown1.Icon = null;
+            this.bunifuDropdown1.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.bunifuDropdown1.IndicatorColor = System.Drawing.Color.Gray;
+            this.bunifuDropdown1.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.bunifuDropdown1.ItemBackColor = System.Drawing.Color.White;
+            this.bunifuDropdown1.ItemBorderColor = System.Drawing.Color.White;
+            this.bunifuDropdown1.ItemForeColor = System.Drawing.Color.Black;
+            this.bunifuDropdown1.ItemHeight = 26;
+            this.bunifuDropdown1.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuDropdown1.ItemHighLightForeColor = System.Drawing.Color.White;
+            this.bunifuDropdown1.ItemTopMargin = 3;
+            this.bunifuDropdown1.Location = new System.Drawing.Point(89, 299);
+            this.bunifuDropdown1.Name = "bunifuDropdown1";
+            this.bunifuDropdown1.Size = new System.Drawing.Size(300, 32);
+            this.bunifuDropdown1.TabIndex = 40;
+            this.bunifuDropdown1.Text = null;
+            this.bunifuDropdown1.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.bunifuDropdown1.TextLeftMargin = 5;
+            this.bunifuDropdown1.ValueMember = "Employee_SSN";
+            this.bunifuDropdown1.SelectedIndexChanged += new System.EventHandler(this.bunifuDropdown1_SelectedIndexChanged);
             // 
-            // Date
+            // employeesBindingSource
             // 
-            this.Date.Text = "Day";
-            this.Date.Width = 120;
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.my_Office_SpaceDataSet;
             // 
-            // signedin
+            // my_Office_SpaceDataSet
             // 
-            this.signedin.Text = "Sign in";
-            this.signedin.Width = 125;
+            this.my_Office_SpaceDataSet.DataSetName = "My_Office_SpaceDataSet";
+            this.my_Office_SpaceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.employeeSSNDataGridViewTextBoxColumn,
+            this.SSN,
+            this.dayDataGridViewTextBoxColumn,
+            this.signinDataGridViewTextBoxColumn,
+            this.signoutDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(506, 26);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(614, 575);
+            this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // employeeSSNDataGridViewTextBoxColumn
+            // 
+            this.employeeSSNDataGridViewTextBoxColumn.HeaderText = "Employee";
+            this.employeeSSNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeeSSNDataGridViewTextBoxColumn.Name = "employeeSSNDataGridViewTextBoxColumn";
+            this.employeeSSNDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeSSNDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // SSN
+            // 
+            this.SSN.DataPropertyName = "Employee_SSN";
+            this.SSN.HeaderText = "Employee SSN";
+            this.SSN.MinimumWidth = 6;
+            this.SSN.Name = "SSN";
+            this.SSN.ReadOnly = true;
+            this.SSN.Width = 75;
+            // 
+            // dayDataGridViewTextBoxColumn
+            // 
+            this.dayDataGridViewTextBoxColumn.DataPropertyName = "Day";
+            this.dayDataGridViewTextBoxColumn.HeaderText = "Day";
+            this.dayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dayDataGridViewTextBoxColumn.Name = "dayDataGridViewTextBoxColumn";
+            this.dayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dayDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // signinDataGridViewTextBoxColumn
+            // 
+            this.signinDataGridViewTextBoxColumn.DataPropertyName = "Sign_in";
+            this.signinDataGridViewTextBoxColumn.HeaderText = "Sign In";
+            this.signinDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.signinDataGridViewTextBoxColumn.Name = "signinDataGridViewTextBoxColumn";
+            this.signinDataGridViewTextBoxColumn.ReadOnly = true;
+            this.signinDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // signoutDataGridViewTextBoxColumn
+            // 
+            this.signoutDataGridViewTextBoxColumn.DataPropertyName = "Sign_out";
+            this.signoutDataGridViewTextBoxColumn.HeaderText = "Sign Out";
+            this.signoutDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.signoutDataGridViewTextBoxColumn.Name = "signoutDataGridViewTextBoxColumn";
+            this.signoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.signoutDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "Attendance";
+            this.bindingSource1.DataSource = this.my_Office_SpaceDataSet;
             // 
             // AttDate
             // 
             this.AttDate.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttDate.Location = new System.Drawing.Point(115, 64);
+            this.AttDate.Location = new System.Drawing.Point(89, 125);
             this.AttDate.Name = "AttDate";
             this.AttDate.Size = new System.Drawing.Size(300, 26);
             this.AttDate.TabIndex = 34;
-            // 
-            // button24
-            // 
-            this.button24.Location = new System.Drawing.Point(115, 412);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(300, 60);
-            this.button24.TabIndex = 33;
-            this.button24.Text = "Choose Employee";
-            this.button24.UseVisualStyleBackColor = true;
-            // 
-            // ListAll
-            // 
-            this.ListAll.BackColor = System.Drawing.Color.Silver;
-            this.ListAll.Location = new System.Drawing.Point(115, 495);
-            this.ListAll.Name = "ListAll";
-            this.ListAll.Size = new System.Drawing.Size(300, 60);
-            this.ListAll.TabIndex = 32;
-            this.ListAll.Text = "List all Attendances";
-            this.ListAll.UseVisualStyleBackColor = false;
-            this.ListAll.Click += new System.EventHandler(this.ListAll_Click);
+            this.AttDate.ValueChanged += new System.EventHandler(this.AttDate_ValueChanged);
             // 
             // ExpenseTab
             // 
-            this.ExpenseTab.Controls.Add(this.button26);
-            this.ExpenseTab.Controls.Add(this.textBox5);
-            this.ExpenseTab.Controls.Add(this.listView3);
-            this.ExpenseTab.Controls.Add(this.button25);
-            this.ExpenseTab.Controls.Add(this.button28);
-            this.ExpenseTab.Controls.Add(this.button29);
-            this.ExpenseTab.Controls.Add(this.button30);
-            this.ExpenseTab.Controls.Add(this.button31);
+            this.ExpenseTab.Controls.Add(this.resetex);
+            this.ExpenseTab.Controls.Add(this.label4);
+            this.ExpenseTab.Controls.Add(this.Approve);
+            this.ExpenseTab.Controls.Add(this.bunifuDropdown2);
+            this.ExpenseTab.Controls.Add(this.dataGridView2);
+            this.ExpenseTab.Controls.Add(this.ViewTrans);
             this.ExpenseTab.Location = new System.Drawing.Point(4, 34);
             this.ExpenseTab.Name = "ExpenseTab";
             this.ExpenseTab.Size = new System.Drawing.Size(1154, 626);
             this.ExpenseTab.TabIndex = 10;
-            this.ExpenseTab.Text = "Expense Report";
+            this.ExpenseTab.Text = "Expenses Report";
             this.ExpenseTab.UseVisualStyleBackColor = true;
             // 
-            // button26
+            // resetex
             // 
-            this.button26.Location = new System.Drawing.Point(970, 564);
-            this.button26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(150, 45);
-            this.button26.TabIndex = 34;
-            this.button26.Text = "Search";
-            this.button26.UseVisualStyleBackColor = true;
+            this.resetex.Location = new System.Drawing.Point(156, 511);
+            this.resetex.Name = "resetex";
+            this.resetex.Size = new System.Drawing.Size(174, 45);
+            this.resetex.TabIndex = 44;
+            this.resetex.Text = "Reset Filters";
+            this.resetex.UseVisualStyleBackColor = true;
+            this.resetex.Click += new System.EventHandler(this.resetex_Click);
             // 
-            // textBox5
+            // label4
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(570, 570);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(370, 33);
-            this.textBox5.TabIndex = 35;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(131, 255);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(212, 21);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Filter by Accountant Number";
             // 
-            // listView3
+            // Approve
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4});
-            this.listView3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(570, 25);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(550, 530);
-            this.listView3.TabIndex = 33;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.Approve.Location = new System.Drawing.Point(83, 78);
+            this.Approve.Name = "Approve";
+            this.Approve.Size = new System.Drawing.Size(300, 60);
+            this.Approve.TabIndex = 42;
+            this.Approve.Text = "Approve transaction";
+            this.Approve.UseVisualStyleBackColor = true;
+            this.Approve.Click += new System.EventHandler(this.Approve_Click);
             // 
-            // columnHeader4
+            // bunifuDropdown2
             // 
-            this.columnHeader4.Text = "Transaction";
-            this.columnHeader4.Width = 353;
+            this.bunifuDropdown2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDropdown2.BackgroundColor = System.Drawing.Color.White;
+            this.bunifuDropdown2.BorderColor = System.Drawing.Color.Silver;
+            this.bunifuDropdown2.BorderRadius = 1;
+            this.bunifuDropdown2.Color = System.Drawing.Color.Silver;
+            this.bunifuDropdown2.DataSource = this.accountantsBindingSource;
+            this.bunifuDropdown2.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.bunifuDropdown2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bunifuDropdown2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuDropdown2.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bunifuDropdown2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.bunifuDropdown2.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
+            this.bunifuDropdown2.DisplayMember = "Accountant_Numb";
+            this.bunifuDropdown2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.bunifuDropdown2.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.bunifuDropdown2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bunifuDropdown2.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.bunifuDropdown2.FillDropDown = true;
+            this.bunifuDropdown2.FillIndicator = false;
+            this.bunifuDropdown2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bunifuDropdown2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuDropdown2.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDropdown2.FormattingEnabled = true;
+            this.bunifuDropdown2.Icon = null;
+            this.bunifuDropdown2.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.bunifuDropdown2.IndicatorColor = System.Drawing.Color.Gray;
+            this.bunifuDropdown2.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.bunifuDropdown2.ItemBackColor = System.Drawing.Color.White;
+            this.bunifuDropdown2.ItemBorderColor = System.Drawing.Color.White;
+            this.bunifuDropdown2.ItemForeColor = System.Drawing.Color.Black;
+            this.bunifuDropdown2.ItemHeight = 26;
+            this.bunifuDropdown2.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuDropdown2.ItemHighLightForeColor = System.Drawing.Color.White;
+            this.bunifuDropdown2.ItemTopMargin = 3;
+            this.bunifuDropdown2.Location = new System.Drawing.Point(83, 279);
+            this.bunifuDropdown2.Name = "bunifuDropdown2";
+            this.bunifuDropdown2.Size = new System.Drawing.Size(300, 32);
+            this.bunifuDropdown2.TabIndex = 41;
+            this.bunifuDropdown2.Text = "System.Data.DataViewManagerListItemTypeDescriptor";
+            this.bunifuDropdown2.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.bunifuDropdown2.TextLeftMargin = 5;
+            this.bunifuDropdown2.ValueMember = "Accountant_Numb";
+            this.bunifuDropdown2.SelectedIndexChanged += new System.EventHandler(this.bunifuDropdown2_SelectedIndexChanged);
             // 
-            // button25
+            // accountantsBindingSource
             // 
-            this.button25.BackColor = System.Drawing.Color.Silver;
-            this.button25.Location = new System.Drawing.Point(115, 475);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(300, 60);
-            this.button25.TabIndex = 32;
-            this.button25.Text = "Refresh Transaction List";
-            this.button25.UseVisualStyleBackColor = false;
+            this.accountantsBindingSource.DataMember = "Accountants";
+            this.accountantsBindingSource.DataSource = this.myOfficeSpaceDataSetBindingSource;
             // 
-            // button28
+            // myOfficeSpaceDataSetBindingSource
             // 
-            this.button28.Location = new System.Drawing.Point(115, 275);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(300, 60);
-            this.button28.TabIndex = 29;
-            this.button28.Text = "View Transaction Details";
-            this.button28.UseVisualStyleBackColor = true;
+            this.myOfficeSpaceDataSetBindingSource.DataSource = this.my_Office_SpaceDataSet;
+            this.myOfficeSpaceDataSetBindingSource.Position = 0;
             // 
-            // button29
+            // dataGridView2
             // 
-            this.button29.Location = new System.Drawing.Point(115, 375);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(300, 60);
-            this.button29.TabIndex = 28;
-            this.button29.Text = "Remove Transaction";
-            this.button29.UseVisualStyleBackColor = true;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToOrderColumns = true;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.expenseNumbDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn,
+            this.accountantNumbDataGridViewTextBoxColumn,
+            this.approvalIDDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.expensesBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(504, 28);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(614, 575);
+            this.dataGridView2.TabIndex = 40;
             // 
-            // button30
+            // expenseNumbDataGridViewTextBoxColumn
             // 
-            this.button30.Location = new System.Drawing.Point(115, 175);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(300, 60);
-            this.button30.TabIndex = 27;
-            this.button30.Text = "Edit Transaction";
-            this.button30.UseVisualStyleBackColor = true;
+            this.expenseNumbDataGridViewTextBoxColumn.DataPropertyName = "Expense_Numb";
+            this.expenseNumbDataGridViewTextBoxColumn.HeaderText = "Expense Number";
+            this.expenseNumbDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.expenseNumbDataGridViewTextBoxColumn.Name = "expenseNumbDataGridViewTextBoxColumn";
+            this.expenseNumbDataGridViewTextBoxColumn.ReadOnly = true;
+            this.expenseNumbDataGridViewTextBoxColumn.Width = 125;
             // 
-            // button31
+            // amountDataGridViewTextBoxColumn
             // 
-            this.button31.Location = new System.Drawing.Point(115, 75);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(300, 60);
-            this.button31.TabIndex = 26;
-            this.button31.Text = "Add Transaction";
-            this.button31.UseVisualStyleBackColor = true;
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // accountantNumbDataGridViewTextBoxColumn
+            // 
+            this.accountantNumbDataGridViewTextBoxColumn.DataPropertyName = "Accountant_Numb";
+            this.accountantNumbDataGridViewTextBoxColumn.HeaderText = "Accountant ID";
+            this.accountantNumbDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.accountantNumbDataGridViewTextBoxColumn.Name = "accountantNumbDataGridViewTextBoxColumn";
+            this.accountantNumbDataGridViewTextBoxColumn.ReadOnly = true;
+            this.accountantNumbDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // approvalIDDataGridViewTextBoxColumn
+            // 
+            this.approvalIDDataGridViewTextBoxColumn.DataPropertyName = "Approval_ID";
+            this.approvalIDDataGridViewTextBoxColumn.HeaderText = "Approval ID";
+            this.approvalIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.approvalIDDataGridViewTextBoxColumn.Name = "approvalIDDataGridViewTextBoxColumn";
+            this.approvalIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.approvalIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // expensesBindingSource
+            // 
+            this.expensesBindingSource.DataMember = "Expenses";
+            this.expensesBindingSource.DataSource = this.my_Office_SpaceDataSet;
+            // 
+            // ViewTrans
+            // 
+            this.ViewTrans.Location = new System.Drawing.Point(83, 178);
+            this.ViewTrans.Name = "ViewTrans";
+            this.ViewTrans.Size = new System.Drawing.Size(300, 60);
+            this.ViewTrans.TabIndex = 29;
+            this.ViewTrans.Text = "View Transaction Details";
+            this.ViewTrans.UseVisualStyleBackColor = true;
+            this.ViewTrans.Click += new System.EventHandler(this.ViewTrans_Click);
+            // 
+            // Payrolls
+            // 
+            this.Payrolls.Controls.Add(this.resetpay);
+            this.Payrolls.Controls.Add(this.label5);
+            this.Payrolls.Controls.Add(this.ApprovePay);
+            this.Payrolls.Controls.Add(this.bunifuDropdown3);
+            this.Payrolls.Controls.Add(this.Viewpay);
+            this.Payrolls.Controls.Add(this.dataGridView3);
+            this.Payrolls.Location = new System.Drawing.Point(4, 34);
+            this.Payrolls.Name = "Payrolls";
+            this.Payrolls.Padding = new System.Windows.Forms.Padding(3);
+            this.Payrolls.Size = new System.Drawing.Size(1154, 626);
+            this.Payrolls.TabIndex = 11;
+            this.Payrolls.Text = "Payrolls";
+            this.Payrolls.UseVisualStyleBackColor = true;
+            // 
+            // resetpay
+            // 
+            this.resetpay.Location = new System.Drawing.Point(155, 511);
+            this.resetpay.Name = "resetpay";
+            this.resetpay.Size = new System.Drawing.Size(174, 45);
+            this.resetpay.TabIndex = 47;
+            this.resetpay.Text = "Reset Filters";
+            this.resetpay.UseVisualStyleBackColor = true;
+            this.resetpay.Click += new System.EventHandler(this.resetpay_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(129, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(200, 21);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "Filter by Employee Number";
+            // 
+            // ApprovePay
+            // 
+            this.ApprovePay.Location = new System.Drawing.Point(83, 79);
+            this.ApprovePay.Name = "ApprovePay";
+            this.ApprovePay.Size = new System.Drawing.Size(300, 60);
+            this.ApprovePay.TabIndex = 45;
+            this.ApprovePay.Text = "Approve Payroll";
+            this.ApprovePay.UseVisualStyleBackColor = true;
+            this.ApprovePay.Click += new System.EventHandler(this.ApprovePay_Click);
+            // 
+            // bunifuDropdown3
+            // 
+            this.bunifuDropdown3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDropdown3.BackgroundColor = System.Drawing.Color.White;
+            this.bunifuDropdown3.BorderColor = System.Drawing.Color.Silver;
+            this.bunifuDropdown3.BorderRadius = 1;
+            this.bunifuDropdown3.Color = System.Drawing.Color.Silver;
+            this.bunifuDropdown3.DataSource = this.payrollBindingSource;
+            this.bunifuDropdown3.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.bunifuDropdown3.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bunifuDropdown3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuDropdown3.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bunifuDropdown3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.bunifuDropdown3.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
+            this.bunifuDropdown3.DisplayMember = "Employee_SSN";
+            this.bunifuDropdown3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.bunifuDropdown3.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.bunifuDropdown3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bunifuDropdown3.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.bunifuDropdown3.FillDropDown = true;
+            this.bunifuDropdown3.FillIndicator = false;
+            this.bunifuDropdown3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bunifuDropdown3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuDropdown3.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDropdown3.FormattingEnabled = true;
+            this.bunifuDropdown3.Icon = null;
+            this.bunifuDropdown3.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.bunifuDropdown3.IndicatorColor = System.Drawing.Color.Gray;
+            this.bunifuDropdown3.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.bunifuDropdown3.ItemBackColor = System.Drawing.Color.White;
+            this.bunifuDropdown3.ItemBorderColor = System.Drawing.Color.White;
+            this.bunifuDropdown3.ItemForeColor = System.Drawing.Color.Black;
+            this.bunifuDropdown3.ItemHeight = 26;
+            this.bunifuDropdown3.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuDropdown3.ItemHighLightForeColor = System.Drawing.Color.White;
+            this.bunifuDropdown3.ItemTopMargin = 3;
+            this.bunifuDropdown3.Location = new System.Drawing.Point(83, 280);
+            this.bunifuDropdown3.Name = "bunifuDropdown3";
+            this.bunifuDropdown3.Size = new System.Drawing.Size(300, 32);
+            this.bunifuDropdown3.TabIndex = 44;
+            this.bunifuDropdown3.Text = "System.Data.DataViewManagerListItemTypeDescriptor";
+            this.bunifuDropdown3.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.bunifuDropdown3.TextLeftMargin = 5;
+            this.bunifuDropdown3.ValueMember = "Employee_SSN";
+            this.bunifuDropdown3.SelectedIndexChanged += new System.EventHandler(this.bunifuDropdown3_SelectedIndexChanged);
+            // 
+            // payrollBindingSource
+            // 
+            this.payrollBindingSource.DataMember = "Payroll";
+            this.payrollBindingSource.DataSource = this.my_Office_SpaceDataSet;
+            // 
+            // Viewpay
+            // 
+            this.Viewpay.Location = new System.Drawing.Point(83, 179);
+            this.Viewpay.Name = "Viewpay";
+            this.Viewpay.Size = new System.Drawing.Size(300, 60);
+            this.Viewpay.TabIndex = 43;
+            this.Viewpay.Text = "View Payroll Details";
+            this.Viewpay.UseVisualStyleBackColor = true;
+            this.Viewpay.Click += new System.EventHandler(this.Viewpay_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToOrderColumns = true;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Payroll_Numb,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView3.DataSource = this.payrollBindingSource;
+            this.dataGridView3.Location = new System.Drawing.Point(505, 28);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(614, 575);
+            this.dataGridView3.TabIndex = 41;
+            // 
+            // Payroll_Numb
+            // 
+            this.Payroll_Numb.DataPropertyName = "Payroll_Numb";
+            this.Payroll_Numb.HeaderText = "Payroll Number";
+            this.Payroll_Numb.MinimumWidth = 6;
+            this.Payroll_Numb.Name = "Payroll_Numb";
+            this.Payroll_Numb.ReadOnly = true;
+            this.Payroll_Numb.Visible = false;
+            this.Payroll_Numb.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Employee_SSN";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Employee SSN";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Amount";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Accountant_Numb";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Accountant Number";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Approval_ID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Approval ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // ToolsTab
             // 
@@ -1197,7 +1632,7 @@
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(613, 79);
+            this.button14.Location = new System.Drawing.Point(602, 157);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(350, 60);
             this.button14.TabIndex = 30;
@@ -1207,7 +1642,7 @@
             // button15
             // 
             this.button15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(106, 79);
+            this.button15.Location = new System.Drawing.Point(95, 157);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(350, 60);
             this.button15.TabIndex = 29;
@@ -1664,7 +2099,7 @@
             this.LogOut.DisabledForecolor = System.Drawing.Color.White;
             this.LogOut.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.LogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.LogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.LogOut.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LogOut.IconLeftCursor = System.Windows.Forms.Cursors.Default;
             this.LogOut.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
@@ -1681,7 +2116,7 @@
             this.LogOut.IdleIconLeftImage = null;
             this.LogOut.IdleIconRightImage = null;
             this.LogOut.IndicateFocus = false;
-            this.LogOut.Location = new System.Drawing.Point(826, 38);
+            this.LogOut.Location = new System.Drawing.Point(822, 37);
             this.LogOut.Name = "LogOut";
             this.LogOut.OnDisabledState.BorderColor = System.Drawing.Color.Transparent;
             this.LogOut.OnDisabledState.BorderRadius = 35;
@@ -1696,7 +2131,7 @@
             this.LogOut.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.LogOut.onHoverState.BorderThickness = 1;
             this.LogOut.onHoverState.FillColor = System.Drawing.Color.Transparent;
-            this.LogOut.onHoverState.ForeColor = System.Drawing.Color.IndianRed;
+            this.LogOut.onHoverState.ForeColor = System.Drawing.Color.Red;
             this.LogOut.onHoverState.IconLeftImage = null;
             this.LogOut.onHoverState.IconRightImage = null;
             this.LogOut.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -1704,7 +2139,7 @@
             this.LogOut.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
             this.LogOut.OnIdleState.BorderThickness = 1;
             this.LogOut.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LogOut.OnIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.LogOut.OnIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.LogOut.OnIdleState.IconLeftImage = null;
             this.LogOut.OnIdleState.IconRightImage = null;
             this.LogOut.OnPressedState.BorderColor = System.Drawing.Color.Transparent;
@@ -1814,15 +2249,25 @@
             this.Exitbtn.UseDefaultRadiusAndThickness = true;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
-            // TaskNumb
+            // attendanceTableAdapter
             // 
-            this.TaskNumb.Text = "Number";
-            this.TaskNumb.Width = 70;
+            this.attendanceTableAdapter.ClearBeforeFill = true;
             // 
-            // signout
+            // employeesTableAdapter
             // 
-            this.signout.Text = "Sign Out";
-            this.signout.Width = 121;
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // expensesTableAdapter
+            // 
+            this.expensesTableAdapter.ClearBeforeFill = true;
+            // 
+            // accountantsTableAdapter
+            // 
+            this.accountantsTableAdapter.ClearBeforeFill = true;
+            // 
+            // payrollTableAdapter
+            // 
+            this.payrollTableAdapter.ClearBeforeFill = true;
             // 
             // ManagerForm
             // 
@@ -1855,8 +2300,20 @@
             this.ScheduleTab.PerformLayout();
             this.AttendanceTab.ResumeLayout(false);
             this.AttendanceTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_Office_SpaceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ExpenseTab.ResumeLayout(false);
             this.ExpenseTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myOfficeSpaceDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).EndInit();
+            this.Payrolls.ResumeLayout(false);
+            this.Payrolls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payrollBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ToolsTab.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.OpenTabb.ResumeLayout(false);
@@ -1889,7 +2346,6 @@
         private System.Windows.Forms.TextBox FileSearch;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button Createfolderbtn;
-        private System.Windows.Forms.Button ShareFilebtn;
         private System.Windows.Forms.Button RenameFilebtn;
         private System.Windows.Forms.Button DeleteFilebtn;
         private System.Windows.Forms.Button OpenFilebtn;
@@ -1934,14 +2390,6 @@
         private System.Windows.Forms.Button AddEmployeebtn;
         private System.Windows.Forms.TabPage AttendanceTab;
         private System.Windows.Forms.DateTimePicker AttDate;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button ListAll;
-        private System.Windows.Forms.TabPage ExpenseTab;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button30;
-        private System.Windows.Forms.Button button31;
         private System.Windows.Forms.TabPage ToolsTab;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage OpenTabb;
@@ -1987,19 +2435,58 @@
         private System.Windows.Forms.TextBox EmployeeSearch;
         private System.Windows.Forms.ListView EmployeesList;
         private System.Windows.Forms.ColumnHeader Employee_Name;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ListView listAttendance;
-        private System.Windows.Forms.ColumnHeader employee;
-        private System.Windows.Forms.ColumnHeader Date;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button AttCheck;
-        private System.Windows.Forms.ColumnHeader signedin;
         private System.Windows.Forms.ColumnHeader TaskNumb;
-        private System.Windows.Forms.ColumnHeader signout;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private My_Office_SpaceDataSet my_Office_SpaceDataSet;
+        private My_Office_SpaceDataSetTableAdapters.AttendanceTableAdapter attendanceTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Bunifu.UI.WinForms.BunifuDropdown bunifuDropdown1;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private My_Office_SpaceDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+        private System.Windows.Forms.TabPage Payrolls;
+        private System.Windows.Forms.TabPage ExpenseTab;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button ViewTrans;
+        private System.Windows.Forms.BindingSource expensesBindingSource;
+        private My_Office_SpaceDataSetTableAdapters.ExpensesTableAdapter expensesTableAdapter;
+        private Bunifu.UI.WinForms.BunifuDropdown bunifuDropdown2;
+        private System.Windows.Forms.BindingSource myOfficeSpaceDataSetBindingSource;
+        private System.Windows.Forms.BindingSource accountantsBindingSource;
+        private My_Office_SpaceDataSetTableAdapters.AccountantsTableAdapter accountantsTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.BindingSource payrollBindingSource;
+        private My_Office_SpaceDataSetTableAdapters.PayrollTableAdapter payrollTableAdapter;
+        private System.Windows.Forms.Button Approve;
+        private System.Windows.Forms.Button ApprovePay;
+        private Bunifu.UI.WinForms.BunifuDropdown bunifuDropdown3;
+        private System.Windows.Forms.Button Viewpay;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expenseNumbDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountantNumbDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approvalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Payroll_Numb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button resetex;
+        private System.Windows.Forms.Button resetpay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeSSNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SSN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn signinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn signoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAcc;
+        private System.Windows.Forms.Button btnHR;
+        private System.Windows.Forms.Button btnemp;
     }
 }

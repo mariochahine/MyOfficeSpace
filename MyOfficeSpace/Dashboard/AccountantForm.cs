@@ -12,9 +12,11 @@ namespace MyOfficeSpace
 {
     public partial class AccountantForm : Form
     {
-        public AccountantForm()
+        int id;
+        public AccountantForm(int ID)
         {
             InitializeComponent();
+            this.id = ID;
         }
 
         private void LogOut_Click(object sender, EventArgs e)

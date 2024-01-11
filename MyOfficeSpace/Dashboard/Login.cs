@@ -91,19 +91,19 @@ namespace MyOfficeSpace
                     }
                     else if("Accountant" == position)
                     {
-                        AccountantForm af = new AccountantForm();
+                        AccountantForm af = new AccountantForm(ID);
                         af.Show();
                         MessageBox.Show("Accountant Login successful!", "Welcome!");
                     }
                     else if("HR" == position)
                     {
-                        HRForm hf = new HRForm();
+                        HRForm hf = new HRForm(ID);
                         hf.Show();
                         MessageBox.Show("HR Login successful!", "Welcome!");
                     }
                     else if("Employee"== position)
                     {
-                        EmployeeForm ef = new EmployeeForm();
+                        EmployeeForm ef = new EmployeeForm(ID);
                         ef.Show();
                         MessageBox.Show("Employee Login successful!", "Welcome!");
                     }
@@ -146,10 +146,13 @@ namespace MyOfficeSpace
         }
 
         private void Exitbtn_Click(object sender, EventArgs e)
+
+
+
         {
             Application.Exit();
         }
-
+        int ID;
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             if (IDbox.Text == "" || Passwordbox.Text == "")
@@ -158,6 +161,7 @@ namespace MyOfficeSpace
             }
             else
             {
+                ID = int.Parse(IDbox.Text);
                 string connString = "Data Source=.;Initial Catalog=My_Office_Space;Integrated Security=True";
                 SqlConnection conn = new SqlConnection(connString);
 

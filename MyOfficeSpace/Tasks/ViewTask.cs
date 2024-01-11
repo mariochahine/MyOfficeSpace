@@ -13,8 +13,8 @@ namespace MyOfficeSpace.Tasks
 {
     public partial class ViewTask : Form
     {
-        String v;
-        public ViewTask(String vt)
+        int v;
+        public ViewTask(int vt)
         {
             InitializeComponent();
             vt = this.v;
@@ -28,7 +28,7 @@ namespace MyOfficeSpace.Tasks
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "select Employee_SSN,Assign_date, Manager_Numb, Task_Details, Done, Deadline from Tasks where Task_Numb = '"+v+"'";
+            cmd.CommandText = "SELECT * FROM Tasks WHERE Task_Numb = "+v;
 
             try
             {

@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.EmpName = new System.Windows.Forms.ComboBox();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.myOfficeSpaceDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.my_Office_SpaceDataSet = new MyOfficeSpace.My_Office_SpaceDataSet();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TaskDetail = new System.Windows.Forms.TextBox();
             this.Deadline = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,18 +47,20 @@
             this.ManagerID = new System.Windows.Forms.ComboBox();
             this.managersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.managersTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.ManagersTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            this.employeesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myOfficeSpaceDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.my_Office_SpaceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.managersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // EmpName
             // 
-            this.EmpName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.employeesBindingSource, "Employee_SSN", true));
-            this.EmpName.DataSource = this.employeesBindingSource;
+            this.EmpName.DataSource = this.employeesBindingSource4;
             this.EmpName.DisplayMember = "Employee_Name";
             this.EmpName.FormattingEnabled = true;
             this.EmpName.Location = new System.Drawing.Point(62, 55);
@@ -67,10 +70,10 @@
             this.EmpName.ValueMember = "Employee_SSN";
             this.EmpName.SelectedIndexChanged += new System.EventHandler(this.EmpName_SelectedIndexChanged);
             // 
-            // employeesBindingSource
+            // employeesBindingSource3
             // 
-            this.employeesBindingSource.DataMember = "Employees";
-            this.employeesBindingSource.DataSource = this.myOfficeSpaceDataSetBindingSource;
+            this.employeesBindingSource3.DataMember = "Employees";
+            this.employeesBindingSource3.DataSource = this.myOfficeSpaceDataSetBindingSource;
             // 
             // myOfficeSpaceDataSetBindingSource
             // 
@@ -81,6 +84,11 @@
             // 
             this.my_Office_SpaceDataSet.DataSetName = "My_Office_SpaceDataSet";
             this.my_Office_SpaceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.myOfficeSpaceDataSetBindingSource;
             // 
             // TaskDetail
             // 
@@ -179,6 +187,11 @@
             // 
             this.managersTableAdapter.ClearBeforeFill = true;
             // 
+            // employeesBindingSource4
+            // 
+            this.employeesBindingSource4.DataMember = "Employees";
+            this.employeesBindingSource4.DataSource = this.myOfficeSpaceDataSetBindingSource;
+            // 
             // AssignTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -196,12 +209,14 @@
             this.Name = "AssignTask";
             this.Text = "AssignTask";
             this.Load += new System.EventHandler(this.AssignTask_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myOfficeSpaceDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.my_Office_SpaceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.managersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +241,7 @@
         private System.Windows.Forms.ComboBox ManagerID;
         private System.Windows.Forms.BindingSource managersBindingSource;
         private My_Office_SpaceDataSetTableAdapters.ManagersTableAdapter managersTableAdapter;
+        private System.Windows.Forms.BindingSource employeesBindingSource3;
+        private System.Windows.Forms.BindingSource employeesBindingSource4;
     }
 }

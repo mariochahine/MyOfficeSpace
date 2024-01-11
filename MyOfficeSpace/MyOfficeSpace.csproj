@@ -37,6 +37,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Documents\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>..\..\..\..\Documents\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
       <HintPath>..\..\..\..\Documents\BunifuCrack-main\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
     </Reference>
@@ -129,6 +132,9 @@
     <Compile Include="Dashboard\ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="My_Office_SpaceDataSet.cs">
+      <DependentUpon>My_Office_SpaceDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My_Office_SpaceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +180,18 @@
     </Compile>
     <Compile Include="Tasks\ViewTask.Designer.cs">
       <DependentUpon>ViewTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewPayroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewPayroll.Designer.cs">
+      <DependentUpon>ViewPayroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewTrans.Designer.cs">
+      <DependentUpon>ViewTrans.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard\AccountantForm.resx">
       <DependentUpon>AccountantForm.cs</DependentUpon>
@@ -235,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tasks\ViewTask.resx">
       <DependentUpon>ViewTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewPayroll.resx">
+      <DependentUpon>ViewPayroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewTrans.resx">
+      <DependentUpon>ViewTrans.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="My_Office_SpaceDataSet.xsc">
       <DependentUpon>My_Office_SpaceDataSet.xsd</DependentUpon>

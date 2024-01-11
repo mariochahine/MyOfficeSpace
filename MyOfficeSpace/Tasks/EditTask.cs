@@ -45,7 +45,7 @@ namespace MyOfficeSpace.Tasks
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error", "Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error");
                 return;
             }
             finally

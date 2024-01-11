@@ -12,9 +12,11 @@ namespace MyOfficeSpace
 {
     public partial class HRForm : Form
     {
-        public HRForm()
+        int id;
+        public HRForm(int ID)
         {
             InitializeComponent();
+            this.id = ID;
         }
 
         private void Exitbtn_Click(object sender, EventArgs e)

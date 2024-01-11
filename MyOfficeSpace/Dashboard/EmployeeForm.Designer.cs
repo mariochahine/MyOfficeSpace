@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -37,13 +38,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.ManagerTab = new System.Windows.Forms.TabControl();
             this.FilesTab = new System.Windows.Forms.TabPage();
-            this.OpenFinishedFolder = new System.Windows.Forms.Button();
-            this.OpenSharedFolder = new System.Windows.Forms.Button();
             this.renameguide = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btnFileSearch = new System.Windows.Forms.Button();
             this.FileSearch = new System.Windows.Forms.TextBox();
-            this.Createfolderbtn = new System.Windows.Forms.Button();
             this.ShareFilebtn = new System.Windows.Forms.Button();
             this.RenameFilebtn = new System.Windows.Forms.Button();
             this.DeleteFilebtn = new System.Windows.Forms.Button();
@@ -51,13 +49,8 @@
             this.FileList = new System.Windows.Forms.ListView();
             this.FileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttendanceTab = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button27 = new System.Windows.Forms.Button();
-            this.EmployeeList = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.attDate = new System.Windows.Forms.DateTimePicker();
+            this.signin = new System.Windows.Forms.Button();
             this.ScheduleTab = new System.Windows.Forms.TabPage();
             this.button17 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -110,7 +103,19 @@
             this.Minimizebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LogOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Exitbtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.button20 = new System.Windows.Forms.Button();
+            this.Payroll = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.my_Office_SpaceDataSet = new MyOfficeSpace.My_Office_SpaceDataSet();
+            this.attendanceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attendanceTableAdapter = new MyOfficeSpace.My_Office_SpaceDataSetTableAdapters.AttendanceTableAdapter();
+            this.attendanceNumbDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.signinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.signoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reset = new System.Windows.Forms.Button();
+            this.signout = new System.Windows.Forms.Button();
             this.bunifuGradientPanel1.SuspendLayout();
             this.ManagerTab.SuspendLayout();
             this.FilesTab.SuspendLayout();
@@ -125,6 +130,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.PaperTab.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_Office_SpaceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuGradientPanel1
@@ -178,6 +186,7 @@
             this.ManagerTab.Controls.Add(this.FilesTab);
             this.ManagerTab.Controls.Add(this.AttendanceTab);
             this.ManagerTab.Controls.Add(this.ScheduleTab);
+            this.ManagerTab.Controls.Add(this.Payroll);
             this.ManagerTab.Controls.Add(this.ToolsTab);
             this.ManagerTab.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManagerTab.ItemSize = new System.Drawing.Size(200, 30);
@@ -190,13 +199,10 @@
             // FilesTab
             // 
             this.FilesTab.BackColor = System.Drawing.SystemColors.Menu;
-            this.FilesTab.Controls.Add(this.OpenFinishedFolder);
-            this.FilesTab.Controls.Add(this.OpenSharedFolder);
             this.FilesTab.Controls.Add(this.renameguide);
             this.FilesTab.Controls.Add(this.button2);
             this.FilesTab.Controls.Add(this.btnFileSearch);
             this.FilesTab.Controls.Add(this.FileSearch);
-            this.FilesTab.Controls.Add(this.Createfolderbtn);
             this.FilesTab.Controls.Add(this.ShareFilebtn);
             this.FilesTab.Controls.Add(this.RenameFilebtn);
             this.FilesTab.Controls.Add(this.DeleteFilebtn);
@@ -209,30 +215,10 @@
             this.FilesTab.TabIndex = 0;
             this.FilesTab.Text = "Files List";
             // 
-            // OpenFinishedFolder
-            // 
-            this.OpenFinishedFolder.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenFinishedFolder.Location = new System.Drawing.Point(101, 512);
-            this.OpenFinishedFolder.Name = "OpenFinishedFolder";
-            this.OpenFinishedFolder.Size = new System.Drawing.Size(300, 60);
-            this.OpenFinishedFolder.TabIndex = 23;
-            this.OpenFinishedFolder.Text = "Open Finished Folder";
-            this.OpenFinishedFolder.UseVisualStyleBackColor = true;
-            // 
-            // OpenSharedFolder
-            // 
-            this.OpenSharedFolder.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenSharedFolder.Location = new System.Drawing.Point(101, 422);
-            this.OpenSharedFolder.Name = "OpenSharedFolder";
-            this.OpenSharedFolder.Size = new System.Drawing.Size(300, 60);
-            this.OpenSharedFolder.TabIndex = 22;
-            this.OpenSharedFolder.Text = "Open Shared Folder";
-            this.OpenSharedFolder.UseVisualStyleBackColor = true;
-            // 
             // renameguide
             // 
             this.renameguide.AutoSize = true;
-            this.renameguide.Location = new System.Drawing.Point(417, 246);
+            this.renameguide.Location = new System.Drawing.Point(413, 283);
             this.renameguide.Name = "renameguide";
             this.renameguide.Size = new System.Drawing.Size(97, 54);
             this.renameguide.TabIndex = 21;
@@ -242,75 +228,71 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(858, 548);
+            this.button2.Location = new System.Drawing.Point(97, 463);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(248, 50);
+            this.button2.Size = new System.Drawing.Size(300, 60);
             this.button2.TabIndex = 20;
             this.button2.Text = "Refresh List";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnFileSearch
             // 
-            this.btnFileSearch.Location = new System.Drawing.Point(956, 496);
+            this.btnFileSearch.Location = new System.Drawing.Point(956, 564);
             this.btnFileSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFileSearch.Name = "btnFileSearch";
             this.btnFileSearch.Size = new System.Drawing.Size(150, 44);
             this.btnFileSearch.TabIndex = 18;
             this.btnFileSearch.Text = "Search";
             this.btnFileSearch.UseVisualStyleBackColor = true;
+            this.btnFileSearch.Click += new System.EventHandler(this.btnFileSearch_Click);
             // 
             // FileSearch
             // 
             this.FileSearch.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FileSearch.Location = new System.Drawing.Point(580, 502);
+            this.FileSearch.Location = new System.Drawing.Point(580, 570);
             this.FileSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FileSearch.Name = "FileSearch";
             this.FileSearch.Size = new System.Drawing.Size(350, 33);
             this.FileSearch.TabIndex = 19;
             // 
-            // Createfolderbtn
-            // 
-            this.Createfolderbtn.Location = new System.Drawing.Point(580, 548);
-            this.Createfolderbtn.Name = "Createfolderbtn";
-            this.Createfolderbtn.Size = new System.Drawing.Size(248, 50);
-            this.Createfolderbtn.TabIndex = 15;
-            this.Createfolderbtn.Text = "Create Finished Folder";
-            this.Createfolderbtn.UseVisualStyleBackColor = true;
-            // 
             // ShareFilebtn
             // 
             this.ShareFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShareFilebtn.Location = new System.Drawing.Point(101, 332);
+            this.ShareFilebtn.Location = new System.Drawing.Point(97, 369);
             this.ShareFilebtn.Name = "ShareFilebtn";
             this.ShareFilebtn.Size = new System.Drawing.Size(300, 60);
             this.ShareFilebtn.TabIndex = 14;
             this.ShareFilebtn.Text = "Share File to Manager";
             this.ShareFilebtn.UseVisualStyleBackColor = true;
+            this.ShareFilebtn.Click += new System.EventHandler(this.ShareFilebtn_Click);
             // 
             // RenameFilebtn
             // 
             this.RenameFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RenameFilebtn.Location = new System.Drawing.Point(101, 242);
+            this.RenameFilebtn.Location = new System.Drawing.Point(97, 279);
             this.RenameFilebtn.Name = "RenameFilebtn";
             this.RenameFilebtn.Size = new System.Drawing.Size(300, 60);
             this.RenameFilebtn.TabIndex = 13;
             this.RenameFilebtn.Text = "Rename File";
             this.RenameFilebtn.UseVisualStyleBackColor = true;
+            this.RenameFilebtn.Click += new System.EventHandler(this.RenameFilebtn_Click);
             // 
             // DeleteFilebtn
             // 
             this.DeleteFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteFilebtn.Location = new System.Drawing.Point(101, 152);
+            this.DeleteFilebtn.Location = new System.Drawing.Point(97, 189);
             this.DeleteFilebtn.Name = "DeleteFilebtn";
             this.DeleteFilebtn.Size = new System.Drawing.Size(300, 60);
             this.DeleteFilebtn.TabIndex = 12;
             this.DeleteFilebtn.Text = "Delete File";
             this.DeleteFilebtn.UseVisualStyleBackColor = true;
+            this.DeleteFilebtn.Click += new System.EventHandler(this.DeleteFilebtn_Click);
             // 
             // OpenFilebtn
             // 
             this.OpenFilebtn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenFilebtn.Location = new System.Drawing.Point(101, 62);
+            this.OpenFilebtn.Location = new System.Drawing.Point(97, 99);
             this.OpenFilebtn.Name = "OpenFilebtn";
             this.OpenFilebtn.Size = new System.Drawing.Size(300, 60);
             this.OpenFilebtn.TabIndex = 11;
@@ -326,7 +308,7 @@
             this.FileList.HideSelection = false;
             this.FileList.Location = new System.Drawing.Point(580, 16);
             this.FileList.Name = "FileList";
-            this.FileList.Size = new System.Drawing.Size(526, 470);
+            this.FileList.Size = new System.Drawing.Size(526, 540);
             this.FileList.TabIndex = 10;
             this.FileList.UseCompatibleStateImageBehavior = false;
             this.FileList.View = System.Windows.Forms.View.Details;
@@ -338,13 +320,12 @@
             // 
             // AttendanceTab
             // 
-            this.AttendanceTab.Controls.Add(this.button20);
-            this.AttendanceTab.Controls.Add(this.dateTimePicker1);
-            this.AttendanceTab.Controls.Add(this.button22);
-            this.AttendanceTab.Controls.Add(this.button23);
-            this.AttendanceTab.Controls.Add(this.textBox4);
-            this.AttendanceTab.Controls.Add(this.button27);
-            this.AttendanceTab.Controls.Add(this.EmployeeList);
+            this.AttendanceTab.Controls.Add(this.signout);
+            this.AttendanceTab.Controls.Add(this.reset);
+            this.AttendanceTab.Controls.Add(this.label2);
+            this.AttendanceTab.Controls.Add(this.dataGridView1);
+            this.AttendanceTab.Controls.Add(this.attDate);
+            this.AttendanceTab.Controls.Add(this.signin);
             this.AttendanceTab.Location = new System.Drawing.Point(4, 34);
             this.AttendanceTab.Name = "AttendanceTab";
             this.AttendanceTab.Padding = new System.Windows.Forms.Padding(3);
@@ -353,69 +334,26 @@
             this.AttendanceTab.Text = "Attendance";
             this.AttendanceTab.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // attDate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 71);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 26);
-            this.dateTimePicker1.TabIndex = 34;
+            this.attDate.CalendarFont = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attDate.Location = new System.Drawing.Point(94, 114);
+            this.attDate.Name = "attDate";
+            this.attDate.Size = new System.Drawing.Size(300, 26);
+            this.attDate.TabIndex = 34;
+            this.attDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // button22
+            // signin
             // 
-            this.button22.BackColor = System.Drawing.Color.Silver;
-            this.button22.Location = new System.Drawing.Point(99, 490);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(300, 60);
-            this.button22.TabIndex = 32;
-            this.button22.Text = "List all Attendances";
-            this.button22.UseVisualStyleBackColor = false;
-            // 
-            // button23
-            // 
-            this.button23.Location = new System.Drawing.Point(957, 558);
-            this.button23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(150, 45);
-            this.button23.TabIndex = 30;
-            this.button23.Text = "Search";
-            this.button23.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(581, 564);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(350, 33);
-            this.textBox4.TabIndex = 31;
-            // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(99, 383);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(300, 60);
-            this.button27.TabIndex = 26;
-            this.button27.Text = "Sign in";
-            this.button27.UseVisualStyleBackColor = true;
-            // 
-            // EmployeeList
-            // 
-            this.EmployeeList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.EmployeeList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeList.HideSelection = false;
-            this.EmployeeList.Location = new System.Drawing.Point(581, 18);
-            this.EmployeeList.Name = "EmployeeList";
-            this.EmployeeList.Size = new System.Drawing.Size(526, 532);
-            this.EmployeeList.TabIndex = 25;
-            this.EmployeeList.UseCompatibleStateImageBehavior = false;
-            this.EmployeeList.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Employee Name";
-            this.columnHeader3.Width = 354;
+            this.signin.BackColor = System.Drawing.Color.Silver;
+            this.signin.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signin.Location = new System.Drawing.Point(94, 361);
+            this.signin.Name = "signin";
+            this.signin.Size = new System.Drawing.Size(300, 54);
+            this.signin.TabIndex = 26;
+            this.signin.Text = "Sign In";
+            this.signin.UseVisualStyleBackColor = false;
+            this.signin.Click += new System.EventHandler(this.Sgnin_Click);
             // 
             // ScheduleTab
             // 
@@ -1090,7 +1028,7 @@
             this.LogOut.AutoSizeLeftIcon = true;
             this.LogOut.AutoSizeRightIcon = true;
             this.LogOut.BackColor = System.Drawing.Color.Transparent;
-            this.LogOut.BackColor1 = System.Drawing.Color.Transparent;
+            this.LogOut.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogOut.BackgroundImage")));
             this.LogOut.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
             this.LogOut.ButtonText = "LogOut";
@@ -1109,7 +1047,7 @@
             this.LogOut.DisabledForecolor = System.Drawing.Color.White;
             this.LogOut.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.LogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogOut.ForeColor = System.Drawing.Color.IndianRed;
+            this.LogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.LogOut.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LogOut.IconLeftCursor = System.Windows.Forms.Cursors.Default;
             this.LogOut.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
@@ -1119,10 +1057,10 @@
             this.LogOut.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.LogOut.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.LogOut.IconSize = 25;
-            this.LogOut.IdleBorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LogOut.IdleBorderRadius = 35;
             this.LogOut.IdleBorderThickness = 1;
-            this.LogOut.IdleFillColor = System.Drawing.Color.Transparent;
+            this.LogOut.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LogOut.IdleIconLeftImage = null;
             this.LogOut.IdleIconRightImage = null;
             this.LogOut.IndicateFocus = false;
@@ -1144,12 +1082,12 @@
             this.LogOut.onHoverState.ForeColor = System.Drawing.Color.IndianRed;
             this.LogOut.onHoverState.IconLeftImage = null;
             this.LogOut.onHoverState.IconRightImage = null;
-            this.LogOut.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.LogOut.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LogOut.OnIdleState.BorderRadius = 35;
             this.LogOut.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Dash;
             this.LogOut.OnIdleState.BorderThickness = 1;
-            this.LogOut.OnIdleState.FillColor = System.Drawing.Color.Transparent;
-            this.LogOut.OnIdleState.ForeColor = System.Drawing.Color.IndianRed;
+            this.LogOut.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LogOut.OnIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.LogOut.OnIdleState.IconLeftImage = null;
             this.LogOut.OnIdleState.IconRightImage = null;
             this.LogOut.OnPressedState.BorderColor = System.Drawing.Color.Transparent;
@@ -1259,15 +1197,126 @@
             this.Exitbtn.UseDefaultRadiusAndThickness = true;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
-            // button20
+            // Payroll
             // 
-            this.button20.BackColor = System.Drawing.Color.Silver;
-            this.button20.Location = new System.Drawing.Point(99, 235);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(300, 60);
-            this.button20.TabIndex = 39;
-            this.button20.Text = "check attendance";
-            this.button20.UseVisualStyleBackColor = false;
+            this.Payroll.Location = new System.Drawing.Point(4, 34);
+            this.Payroll.Name = "Payroll";
+            this.Payroll.Padding = new System.Windows.Forms.Padding(3);
+            this.Payroll.Size = new System.Drawing.Size(1152, 627);
+            this.Payroll.TabIndex = 12;
+            this.Payroll.Text = "Payroll";
+            this.Payroll.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.attendanceNumbDataGridViewTextBoxColumn,
+            this.employeeSSNDataGridViewTextBoxColumn,
+            this.dayDataGridViewTextBoxColumn,
+            this.signinDataGridViewTextBoxColumn,
+            this.signoutDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.attendanceBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(508, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(614, 575);
+            this.dataGridView1.TabIndex = 40;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(168, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 21);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Pick a Specific Day";
+            // 
+            // my_Office_SpaceDataSet
+            // 
+            this.my_Office_SpaceDataSet.DataSetName = "My_Office_SpaceDataSet";
+            this.my_Office_SpaceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // attendanceBindingSource
+            // 
+            this.attendanceBindingSource.DataMember = "Attendance";
+            this.attendanceBindingSource.DataSource = this.my_Office_SpaceDataSet;
+            // 
+            // attendanceTableAdapter
+            // 
+            this.attendanceTableAdapter.ClearBeforeFill = true;
+            // 
+            // attendanceNumbDataGridViewTextBoxColumn
+            // 
+            this.attendanceNumbDataGridViewTextBoxColumn.DataPropertyName = "Attendance_Numb";
+            this.attendanceNumbDataGridViewTextBoxColumn.HeaderText = "Attendance Number";
+            this.attendanceNumbDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.attendanceNumbDataGridViewTextBoxColumn.Name = "attendanceNumbDataGridViewTextBoxColumn";
+            this.attendanceNumbDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeSSNDataGridViewTextBoxColumn
+            // 
+            this.employeeSSNDataGridViewTextBoxColumn.DataPropertyName = "Employee_SSN";
+            this.employeeSSNDataGridViewTextBoxColumn.HeaderText = "Employee SSN";
+            this.employeeSSNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeeSSNDataGridViewTextBoxColumn.Name = "employeeSSNDataGridViewTextBoxColumn";
+            this.employeeSSNDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dayDataGridViewTextBoxColumn
+            // 
+            this.dayDataGridViewTextBoxColumn.DataPropertyName = "Day";
+            this.dayDataGridViewTextBoxColumn.HeaderText = "Day";
+            this.dayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dayDataGridViewTextBoxColumn.Name = "dayDataGridViewTextBoxColumn";
+            this.dayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // signinDataGridViewTextBoxColumn
+            // 
+            this.signinDataGridViewTextBoxColumn.DataPropertyName = "Sign_in";
+            this.signinDataGridViewTextBoxColumn.HeaderText = "Sign In";
+            this.signinDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.signinDataGridViewTextBoxColumn.Name = "signinDataGridViewTextBoxColumn";
+            this.signinDataGridViewTextBoxColumn.ReadOnly = true;
+            this.signinDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // signoutDataGridViewTextBoxColumn
+            // 
+            this.signoutDataGridViewTextBoxColumn.DataPropertyName = "Sign_out";
+            this.signoutDataGridViewTextBoxColumn.HeaderText = "Sign Out";
+            this.signoutDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.signoutDataGridViewTextBoxColumn.Name = "signoutDataGridViewTextBoxColumn";
+            this.signoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.signoutDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reset
+            // 
+            this.reset.Location = new System.Drawing.Point(152, 518);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(174, 52);
+            this.reset.TabIndex = 44;
+            this.reset.Text = "Reset Filters";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
+            // 
+            // signout
+            // 
+            this.signout.BackColor = System.Drawing.Color.Silver;
+            this.signout.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signout.Location = new System.Drawing.Point(94, 435);
+            this.signout.Name = "signout";
+            this.signout.Size = new System.Drawing.Size(300, 54);
+            this.signout.TabIndex = 45;
+            this.signout.Text = "Sign Out";
+            this.signout.UseVisualStyleBackColor = false;
+            this.signout.Click += new System.EventHandler(this.signout_Click);
             // 
             // EmployeeForm
             // 
@@ -1281,6 +1330,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeForm";
             this.TransparencyKey = System.Drawing.Color.LightPink;
+            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.bunifuGradientPanel1.ResumeLayout(false);
             this.bunifuGradientPanel1.PerformLayout();
             this.ManagerTab.ResumeLayout(false);
@@ -1302,6 +1352,9 @@
             this.PaperTab.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_Office_SpaceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1312,13 +1365,10 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton LogOut;
         private System.Windows.Forms.TabControl ManagerTab;
         private System.Windows.Forms.TabPage FilesTab;
-        private System.Windows.Forms.Button OpenFinishedFolder;
-        private System.Windows.Forms.Button OpenSharedFolder;
         private System.Windows.Forms.Label renameguide;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnFileSearch;
         private System.Windows.Forms.TextBox FileSearch;
-        private System.Windows.Forms.Button Createfolderbtn;
         private System.Windows.Forms.Button ShareFilebtn;
         private System.Windows.Forms.Button RenameFilebtn;
         private System.Windows.Forms.Button DeleteFilebtn;
@@ -1326,13 +1376,8 @@
         private System.Windows.Forms.ListView FileList;
         private System.Windows.Forms.ColumnHeader FileName;
         private System.Windows.Forms.TabPage AttendanceTab;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.ListView EmployeeList;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.DateTimePicker attDate;
+        private System.Windows.Forms.Button signin;
         private System.Windows.Forms.TabPage ScheduleTab;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button18;
@@ -1386,6 +1431,18 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.TabPage Payroll;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label2;
+        private My_Office_SpaceDataSet my_Office_SpaceDataSet;
+        private System.Windows.Forms.BindingSource attendanceBindingSource;
+        private My_Office_SpaceDataSetTableAdapters.AttendanceTableAdapter attendanceTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attendanceNumbDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeSSNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn signinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn signoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.Button signout;
     }
 }
